@@ -9,10 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
         /* ============================================================
-                   RESET & BASE MEJORADO
+                   RESET & BASE
                    ============================================================ */
         *,
         *::before,
@@ -23,27 +22,23 @@
         }
 
         :root {
-            /* ===== NUEVA PALETA ELEGANTE Y LUMINOSA ===== */
             --color-primary: #1A7A4A;
             --color-primary-light: #3BA37D;
             --color-primary-lighter: #6DC99E;
             --color-primary-soft: #D4EDE0;
-            --color-primary-glass: rgba(26, 122, 74, 0.06);
-            --color-primary-border: rgba(26, 122, 74, 0.10);
             
             --color-white: #FFFFFF;
             --color-off-white: #F8FFFA;
             --color-cream: #F0F5F0;
             --color-text-dark: #0A1F12;
             --color-text-secondary: #2D4A3A;
-            --color-text-muted: #6A8A7A;
+            --color-text-muted: #5A7A6A;
             
             --color-accent: #E8A735;
-            --color-accent-hover: #D4952A;
             --color-whatsapp: #25D366;
             
             --glass-bg: rgba(26, 122, 74, 0.04);
-            --glass-border: rgba(26, 122, 74, 0.06);
+            --glass-border: rgba(26, 122, 74, 0.08);
             --text-primary: var(--color-text-dark);
             --text-secondary: var(--color-text-secondary);
             --text-muted: var(--color-text-muted);
@@ -54,17 +49,17 @@
             --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        /* ===== TEMA OSCURO ===== */
         body.dark-theme {
             --color-white: #0A1F12;
             --color-off-white: #12261A;
             --color-cream: #1A2F22;
-            --color-text-dark: #F5F2ED;
-            --color-text-secondary: #C8DDD0;
-            --color-text-muted: #8AA89A;
-            --glass-bg: rgba(26, 122, 74, 0.12);
-            --glass-border: rgba(26, 122, 74, 0.08);
+            --color-text-dark: #F0F8F2;
+            --color-text-secondary: #C8E0D0;
+            --color-text-muted: #A0C0B0;
+            --glass-bg: rgba(26, 122, 74, 0.15);
+            --glass-border: rgba(26, 122, 74, 0.10);
         }
+
         body.dark-theme .main-bg {
             background:
                 radial-gradient(ellipse at 15% 20%, #1A3A28 0%, transparent 55%),
@@ -72,34 +67,411 @@
                 radial-gradient(ellipse at 50% 80%, #1A3A28 0%, transparent 50%),
                 #0A1F12;
         }
+
         body.dark-theme .navbar {
             background: rgba(10, 31, 18, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
         }
+        body.dark-theme .navbar .logo-main {
+            color: #F0F8F2;
+        }
+        body.dark-theme .navbar .logo-sub {
+            color: rgba(255, 255, 255, 0.4);
+        }
+        body.dark-theme .navbar .logo-rif {
+            color: rgba(255, 255, 255, 0.15);
+        }
+
         body.dark-theme .problema-card,
         body.dark-theme .servicio-item,
         body.dark-theme .mvv-card,
         body.dark-theme .glass-card {
-            background: rgba(26, 122, 74, 0.08);
+            background: rgba(26, 122, 74, 0.10);
+            border-color: rgba(255, 255, 255, 0.04);
         }
+        body.dark-theme .problema-card p,
+        body.dark-theme .servicio-item p,
+        body.dark-theme .mvv-card p,
+        body.dark-theme .glass-card p {
+            color: #C8E0D0 !important;
+        }
+        body.dark-theme .problema-card h4,
+        body.dark-theme .servicio-item h3,
+        body.dark-theme .mvv-card h3 {
+            color: #F0F8F2 !important;
+        }
+
+        body.dark-theme .sobre-nosotros .texto p {
+            color: #C8E0D0 !important;
+        }
+        body.dark-theme .sobre-nosotros .sub {
+            color: #A0C0B0 !important;
+        }
+        body.dark-theme .sobre-nosotros h2 {
+            color: #F0F8F2 !important;
+        }
+
+        body.dark-theme .servicios .sub {
+            color: #A0C0B0 !important;
+        }
+        body.dark-theme .servicios h2 {
+            color: #F0F8F2 !important;
+        }
+
+        body.dark-theme .clientes h2 {
+            color: #F0F8F2 !important;
+        }
+        body.dark-theme .clientes .sub {
+            color: #A0C0B0 !important;
+        }
+
+        body.dark-theme .reseñas h3 {
+            color: #F0F8F2 !important;
+        }
+        body.dark-theme .reseña-item p {
+            color: #C8E0D0 !important;
+        }
+
+        body.dark-theme .calculadora h3 {
+            color: #F0F8F2 !important;
+        }
+        body.dark-theme .calculadora .sub {
+            color: #A0C0B0 !important;
+        }
+        body.dark-theme .calculadora label {
+            color: #A0C0B0 !important;
+        }
+
+        body.dark-theme .video-section h2 {
+            color: #F0F8F2 !important;
+        }
+        body.dark-theme .video-section .sub {
+            color: #A0C0B0 !important;
+        }
+
+        body.dark-theme .mapa-section h3 {
+            color: #F0F8F2 !important;
+        }
+        body.dark-theme .mapa-section div {
+            color: #A0C0B0 !important;
+        }
+
+        body.dark-theme .qr-section h3 {
+            color: #F0F8F2 !important;
+        }
+
+        body.dark-theme .cta-final h2 {
+            color: #F0F8F2 !important;
+        }
+        body.dark-theme .cta-final .sub {
+            color: #A0C0B0 !important;
+        }
+
         body.dark-theme .footer {
             background: rgba(10, 31, 18, 0.95);
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
         }
+        body.dark-theme .footer p {
+            color: rgba(255, 255, 255, 0.4) !important;
+        }
+        body.dark-theme .footer a {
+            color: #6DC99E !important;
+        }
+        body.dark-theme .footer .logo-small {
+            color: #F0F8F2 !important;
+        }
+
         body.dark-theme .glass {
             background: rgba(26, 122, 74, 0.12);
+            border-color: rgba(255, 255, 255, 0.04);
         }
         body.dark-theme .glass:hover {
             background: rgba(26, 122, 74, 0.20);
         }
+
         body.dark-theme .cta-box {
             background: rgba(26, 122, 74, 0.10);
+            border-color: rgba(255, 255, 255, 0.04);
         }
-        body.dark-theme .testimonial {
-            background: rgba(26, 122, 74, 0.08);
+        body.dark-theme .cta-box input,
+        body.dark-theme .cta-box select {
+            background: rgba(10, 31, 18, 0.4);
+            color: #F0F8F2;
+            border-color: rgba(255, 255, 255, 0.06);
         }
-        body.dark-theme .logo-rif {
-            color: rgba(245, 242, 237, 0.12);
+        body.dark-theme .cta-box input::placeholder {
+            color: rgba(255, 255, 255, 0.2);
         }
 
+        body.dark-theme .testimonial {
+            background: rgba(26, 122, 74, 0.10);
+            border-color: rgba(255, 255, 255, 0.04);
+        }
+        body.dark-theme .testimonial p {
+            color: #C8E0D0 !important;
+        }
+        body.dark-theme .testimonial .autor {
+            color: #6DC99E !important;
+        }
+
+        body.dark-theme .banner-slider .slide .slide-content h1 {
+            color: #F0F8F2 !important;
+        }
+        body.dark-theme .banner-slider .slide .slide-content p {
+            color: rgba(255, 255, 255, 0.7) !important;
+        }
+        body.dark-theme .banner-slider .slide .slide-badge {
+            background: rgba(26, 122, 74, 0.15);
+            color: #6DC99E;
+            border-color: rgba(255, 255, 255, 0.04);
+        }
+
+        body.dark-theme .btn-sistema {
+            box-shadow: 0 8px 32px rgba(26, 122, 74, 0.3);
+        }
+        body.dark-theme .btn-primary {
+            box-shadow: 0 8px 32px rgba(26, 122, 74, 0.3);
+        }
+        body.dark-theme .btn-whatsapp {
+            box-shadow: 0 8px 32px rgba(37, 211, 102, 0.2);
+        }
+
+        body.dark-theme .scroll-top {
+            background: rgba(26, 122, 74, 0.15);
+            border-color: rgba(255, 255, 255, 0.04);
+            color: #6DC99E;
+        }
+        body.dark-theme .scroll-top:hover {
+            background: var(--color-primary);
+            color: #FFFFFF;
+        }
+
+        body.dark-theme .help-float {
+            background: rgba(26, 122, 74, 0.15);
+            border-color: rgba(255, 255, 255, 0.04);
+            color: #6DC99E;
+        }
+        body.dark-theme .help-float:hover {
+            background: var(--color-primary);
+            color: #FFFFFF;
+        }
+
+        body.dark-theme .theme-toggle {
+            background: rgba(26, 122, 74, 0.10);
+            border-color: rgba(255, 255, 255, 0.04);
+            color: #6DC99E;
+        }
+        body.dark-theme .theme-toggle:hover {
+            background: rgba(26, 122, 74, 0.20);
+        }
+
+        body.dark-theme .idioma-selector {
+            background: rgba(26, 122, 74, 0.10);
+            border-color: rgba(255, 255, 255, 0.04);
+        }
+        body.dark-theme .idioma-btn {
+            color: rgba(255, 255, 255, 0.3);
+        }
+        body.dark-theme .idioma-btn.active {
+            background: var(--color-primary);
+            color: #FFFFFF;
+        }
+        body.dark-theme .idioma-btn:hover:not(.active) {
+            color: #6DC99E;
+        }
+
+        body.dark-theme .nav-phone {
+            background: rgba(26, 122, 74, 0.10);
+            border-color: rgba(255, 255, 255, 0.04);
+            color: #6DC99E;
+        }
+        body.dark-theme .nav-phone:hover {
+            background: rgba(26, 122, 74, 0.20);
+            color: #8FE3B0;
+        }
+
+        body.dark-theme .help-content {
+            background: #12261A;
+            border-color: rgba(255, 255, 255, 0.04);
+        }
+        body.dark-theme .help-content h3 {
+            color: #6DC99E;
+        }
+        body.dark-theme .help-option {
+            background: rgba(26, 122, 74, 0.08);
+            color: #F0F8F2;
+        }
+        body.dark-theme .help-option:hover {
+            background: rgba(26, 122, 74, 0.15);
+        }
+        body.dark-theme .help-faq details {
+            background: rgba(26, 122, 74, 0.06);
+            border-color: rgba(255, 255, 255, 0.04);
+        }
+        body.dark-theme .help-faq details summary {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        body.dark-theme .help-faq details summary:hover {
+            color: #6DC99E;
+        }
+        body.dark-theme .help-faq details p {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        body.dark-theme .toast {
+            background: #12261A;
+            border-color: rgba(255, 255, 255, 0.04);
+            color: #6DC99E;
+        }
+
+        body.dark-theme .cliente-card {
+            background: rgba(26, 122, 74, 0.08);
+            border-color: rgba(255, 255, 255, 0.04);
+            color: rgba(255, 255, 255, 0.6);
+        }
+        body.dark-theme .cliente-card:hover {
+            border-color: #6DC99E;
+        }
+
+        body.dark-theme .contador-item {
+            background: rgba(26, 122, 74, 0.08);
+            border-color: rgba(255, 255, 255, 0.04);
+        }
+        body.dark-theme .contador-item div {
+            color: #F0F8F2;
+        }
+
+        body.dark-theme .video-tags span {
+            color: rgba(255, 255, 255, 0.3);
+        }
+        body.dark-theme .video-tags span i {
+            color: #6DC99E;
+        }
+
+        body.dark-theme .check-item label {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        body.dark-theme .check-item label:hover {
+            color: #F0F8F2;
+        }
+        body.dark-theme .check-item {
+            border-color: rgba(255, 255, 255, 0.04);
+        }
+
+        body.dark-theme .accordion-modern .accordion-item {
+            background: rgba(26, 122, 74, 0.08);
+            border-color: rgba(255, 255, 255, 0.04);
+        }
+        body.dark-theme .accordion-modern .accordion-item .info h3 {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        body.dark-theme .accordion-modern .accordion-item.active .info h3 {
+            color: #6DC99E;
+        }
+        body.dark-theme .accordion-modern .accordion-item .cargo {
+            color: #6DC99E;
+        }
+        body.dark-theme .accordion-modern .accordion-item .badge {
+            background: rgba(26, 122, 74, 0.10);
+            color: #6DC99E;
+            border-color: rgba(255, 255, 255, 0.04);
+        }
+        body.dark-theme .accordion-modern .accordion-item .icon-toggle {
+            color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.04);
+        }
+        body.dark-theme .accordion-modern .accordion-item.active .icon-toggle {
+            color: #6DC99E;
+        }
+        body.dark-theme .accordion-modern .accordion-body .contenido .descripcion p {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        body.dark-theme .accordion-modern .accordion-body .contenido .descripcion .social-links a {
+            color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.04);
+        }
+        body.dark-theme .accordion-modern .accordion-body .contenido .descripcion .social-links a:hover {
+            color: #6DC99E;
+        }
+
+        body.dark-theme .problema .subtitle {
+            color: #A0C0B0 !important;
+        }
+        body.dark-theme .problema h2 {
+            color: #F0F8F2 !important;
+        }
+
+        body.dark-theme .logo-rif {
+            color: rgba(255, 255, 255, 0.12);
+        }
+
+        /* ===== MARCA DE AGUA ===== */
+        .bg-watermark {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.10;
+            transition: opacity 0.6s ease;
+        }
+
+        .bg-watermark img {
+            width: 150vw;
+            max-width: none;
+            height: auto;
+            object-fit: contain;
+            filter: brightness(1.0) saturate(0.9);
+            animation: watermarkFloat 35s ease-in-out infinite alternate;
+            transform-origin: center;
+        }
+
+        @keyframes watermarkFloat {
+            0% {
+                transform: scale(1) rotate(-3deg) translateX(-3%);
+                opacity: 0.7;
+            }
+            50% {
+                transform: scale(1.08) rotate(2deg) translateX(3%);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1) rotate(-2deg) translateX(-3%);
+                opacity: 0.7;
+            }
+        }
+
+        body.dark-theme .bg-watermark {
+            opacity: 0.12;
+        }
+        body.dark-theme .bg-watermark img {
+            filter: brightness(1.2) saturate(0.9);
+        }
+
+        @media (max-width: 768px) {
+            .bg-watermark {
+                opacity: 0.08;
+            }
+            .bg-watermark img {
+                width: 200vw;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .bg-watermark {
+                opacity: 0.06;
+            }
+            .bg-watermark img {
+                width: 250vw;
+            }
+        }
+
+        /* ============================================================
+                   RESTO DE ESTILOS
+                   ============================================================ */
         html {
             scroll-behavior: smooth;
         }
@@ -115,7 +487,6 @@
             transition: background 0.4s ease, color 0.4s ease;
         }
 
-        /* ===== MAIN BG LUMINOSO ===== */
         .main-bg {
             position: fixed;
             inset: 0;
@@ -140,55 +511,6 @@
             -webkit-backdrop-filter: blur(2px);
         }
 
-        /* ============================================================
-                   MARCA DE AGUA - LOGO GIGANTE (MÁS VISIBLE)
-                   ============================================================ */
-        .bg-watermark {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0.12;
-            transition: opacity 0.6s ease;
-        }
-
-        .bg-watermark img {
-            width: 150vw;
-            max-width: none;
-            height: auto;
-            object-fit: contain;
-            filter: brightness(1.1) saturate(0.8);
-            animation: watermarkFloat 35s ease-in-out infinite alternate;
-            transform-origin: center;
-        }
-
-        @keyframes watermarkFloat {
-            0% {
-                transform: scale(1) rotate(-3deg) translateX(-3%);
-                opacity: 0.7;
-            }
-            50% {
-                transform: scale(1.08) rotate(2deg) translateX(3%);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(1) rotate(-2deg) translateX(-3%);
-                opacity: 0.7;
-            }
-        }
-
-        body.dark-theme .bg-watermark {
-            opacity: 0.15;
-        }
-        body.dark-theme .bg-watermark img {
-            filter: brightness(1.2) saturate(0.9);
-        }
-
-        /* ===== LIGHT SPARKLE ===== */
         .light-sparkle {
             position: fixed;
             border-radius: 50%;
@@ -243,7 +565,6 @@
             }
         }
 
-        /* ===== GLOW TEXT ===== */
         .glow-text {
             text-shadow:
                 0 0 25px rgba(26, 122, 74, 0.04),
@@ -256,7 +577,6 @@
                 0 0 60px rgba(232, 167, 53, 0.04);
         }
 
-        /* ===== UTILITY ===== */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -276,7 +596,6 @@
             padding: 60px 0;
         }
 
-        /* ===== GLASS MEJORADO ===== */
         .glass {
             background: var(--glass-bg);
             backdrop-filter: blur(16px);
@@ -306,7 +625,6 @@
             border-color: rgba(26, 122, 74, 0.10);
         }
 
-        /* ===== WHATSAPP FLOAT ===== */
         .whatsapp-float {
             position: fixed;
             bottom: 28px;
@@ -343,7 +661,6 @@
             }
         }
 
-        /* ===== SCROLL TOP ===== */
         .scroll-top {
             position: fixed;
             bottom: 100px;
@@ -373,7 +690,6 @@
             border-color: var(--color-primary);
         }
 
-        /* ===== HELP FLOAT ===== */
         .help-float {
             position: fixed;
             bottom: 160px;
@@ -396,7 +712,6 @@
             color: #FFFFFF;
         }
 
-        /* ===== HELP MODAL ===== */
         .help-modal {
             position: fixed;
             inset: 0;
@@ -489,19 +804,6 @@
             font-size: 0.9rem;
         }
 
-        /* ===== PROGRESS BAR ===== */
-        .progress-bar {
-            position: sticky;
-            top: 0;
-            z-index: 99;
-            height: 3px;
-            background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
-            width: 0%;
-            transition: width 0.1s linear;
-            box-shadow: 0 0 20px rgba(26, 122, 74, 0.06);
-        }
-
-        /* ===== TOAST ===== */
         .toast {
             position: fixed;
             bottom: 220px;
@@ -530,7 +832,6 @@
             font-size: 1.4rem;
         }
 
-        /* ===== SKIP LINK ===== */
         .skip-link {
             position: absolute;
             top: -100%;
@@ -549,7 +850,6 @@
             top: 0;
         }
 
-        /* ===== THEME TOGGLE ===== */
         .theme-toggle {
             background: rgba(26, 122, 74, 0.06);
             border: 1px solid rgba(26, 122, 74, 0.06);
@@ -572,7 +872,6 @@
             font-size: 1.4rem;
         }
 
-        /* ===== IDIOMA SELECTOR ===== */
         .idioma-selector {
             display: flex;
             gap: 6px;
@@ -601,7 +900,6 @@
             color: var(--color-primary);
         }
 
-        /* ===== CALCULADORA ===== */
         .calc-box input[type="range"] {
             width: 100%;
             margin: 12px 0;
@@ -621,57 +919,6 @@
             box-shadow: 0 0 20px rgba(26, 122, 74, 0.15);
         }
 
-        /* ===== COLOR PICKER ===== */
-        .color-picker {
-            position: fixed;
-            bottom: 100px;
-            left: 28px;
-            z-index: 50;
-        }
-        #colorToggle {
-            padding: 10px 14px;
-            border: 1px solid rgba(26, 122, 74, 0.10);
-            border-radius: var(--radius);
-            cursor: pointer;
-            color: var(--color-primary);
-            font-size: 1.2rem;
-            background: var(--color-white);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-            transition: all 0.3s ease;
-        }
-        #colorToggle:hover {
-            background: var(--color-primary);
-            color: #FFFFFF;
-        }
-        #colorOptions {
-            display: none;
-            margin-top: 8px;
-            padding: 12px;
-            border-radius: var(--radius);
-            background: var(--color-white);
-            border: 1px solid rgba(26, 122, 74, 0.06);
-            box-shadow: var(--shadow);
-        }
-        #colorOptions.active {
-            display: block;
-        }
-        .color-btn {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            border: 2px solid transparent;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .color-btn:hover {
-            transform: scale(1.1);
-        }
-        .color-btn.active {
-            border-color: var(--color-primary);
-            box-shadow: 0 0 20px rgba(26, 122, 74, 0.15);
-        }
-
-        /* ===== HEADER / NAVBAR ===== */
         .navbar {
             background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(32px);
@@ -768,7 +1015,6 @@
             flex-shrink: 0;
         }
 
-        /* ===== BOTÓN SISTEMA ===== */
         .btn-sistema {
             display: inline-flex;
             align-items: center;
@@ -798,7 +1044,6 @@
             transform: scale(0.97);
         }
 
-        /* ===== NAV PHONE ===== */
         .nav-phone {
             background: rgba(26, 122, 74, 0.06);
             border: 1px solid rgba(26, 122, 74, 0.06);
@@ -824,7 +1069,6 @@
             font-size: 1.1rem;
         }
 
-        /* ===== BANNER ===== */
         .banner-slider {
             height: 560px;
             position: relative;
@@ -951,7 +1195,6 @@
             background: rgba(26, 122, 74, 0.20);
         }
 
-        /* ===== PROBLEMA ===== */
         .problema {
             border-bottom: 1px solid rgba(26, 122, 74, 0.04);
         }
@@ -1004,7 +1247,6 @@
             font-size: 0.95rem;
         }
 
-        /* ===== SERVICIOS ===== */
         .servicios {
             border-bottom: 1px solid rgba(26, 122, 74, 0.04);
         }
@@ -1019,6 +1261,7 @@
         .servicios h2 {
             font-size: 2.4rem;
             margin-bottom: 6px;
+            color: var(--text-primary);
         }
         .servicios .sub {
             color: var(--text-muted);
@@ -1117,7 +1360,6 @@
             border-color: rgba(26, 122, 74, 0.08);
         }
 
-        /* ===== CLIENTES ===== */
         .clientes {
             border-bottom: 1px solid rgba(26, 122, 74, 0.04);
             text-align: center;
@@ -1125,6 +1367,7 @@
         .clientes h2 {
             font-size: 2.1rem;
             margin-bottom: 6px;
+            color: var(--text-primary);
         }
         .clientes .sub {
             color: var(--text-muted);
@@ -1203,7 +1446,6 @@
             text-align: center;
         }
 
-        /* ===== CONTADORES ===== */
         .contador-item {
             transition: all 0.3s ease;
             background: var(--color-white);
@@ -1216,13 +1458,13 @@
             box-shadow: var(--shadow);
         }
 
-        /* ===== SOBRE NOSOTROS ===== */
         .sobre-nosotros {
             border-bottom: 1px solid rgba(26, 122, 74, 0.04);
         }
         .sobre-nosotros h2 {
             font-size: 2.4rem;
             margin-bottom: 6px;
+            color: var(--text-primary);
         }
         .sobre-nosotros .sub {
             color: var(--text-muted);
@@ -1323,7 +1565,6 @@
             display: block;
         }
 
-        /* ===== ACORDEÓN ===== */
         .accordion-modern {
             display: flex;
             flex-direction: column;
@@ -1495,9 +1736,11 @@
             transform: translateY(-2px);
         }
 
-        /* ===== RESEÑAS ===== */
         .reseñas {
             border-bottom: 1px solid rgba(26, 122, 74, 0.04);
+        }
+        .reseñas h3 {
+            color: var(--text-primary);
         }
         .reseña-item {
             transition: all 0.3s ease;
@@ -1505,10 +1748,18 @@
         .reseña-item:hover {
             transform: translateY(-4px);
         }
+        .reseña-item p {
+            color: var(--text-secondary);
+        }
 
-        /* ===== CHECKLIST ===== */
         .checklist {
             border-bottom: 1px solid rgba(26, 122, 74, 0.04);
+        }
+        .checklist h3 {
+            color: var(--text-primary);
+        }
+        .checklist .sub {
+            color: var(--text-muted);
         }
         .check-item {
             padding: 10px 0;
@@ -1537,7 +1788,6 @@
             border-radius: 4px;
         }
 
-        /* ===== VIDEO ===== */
         .video-section {
             border-top: 1px solid rgba(26, 122, 74, 0.04);
             border-bottom: 1px solid rgba(26, 122, 74, 0.04);
@@ -1546,6 +1796,7 @@
         .video-section h2 {
             font-size: 2.4rem;
             margin-bottom: 6px;
+            color: var(--text-primary);
         }
         .video-section .sub {
             color: var(--text-muted);
@@ -1589,9 +1840,14 @@
             color: var(--color-primary);
         }
 
-        /* ===== MAPA ===== */
         .mapa-section {
             border-bottom: 1px solid rgba(26, 122, 74, 0.04);
+        }
+        .mapa-section h3 {
+            color: var(--text-primary);
+        }
+        .mapa-section div {
+            color: var(--text-muted);
         }
         .mapa-wrapper {
             border-radius: var(--radius-lg);
@@ -1610,9 +1866,12 @@
             border: 0;
         }
 
-        /* ===== QR ===== */
         .qr-section {
             border-bottom: 1px solid rgba(26, 122, 74, 0.04);
+            text-align: center;
+        }
+        .qr-section h3 {
+            color: var(--text-primary);
         }
         #qrCode {
             width: 150px;
@@ -1629,94 +1888,6 @@
             height: 100% !important;
         }
 
-        /* ===== SHARE BUTTONS ===== */
-        .share-btn {
-            background: rgba(26, 122, 74, 0.04);
-            border: 1px solid rgba(26, 122, 74, 0.04);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            color: var(--text-muted);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-        }
-        .share-btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            border-color: rgba(26, 122, 74, 0.10);
-        }
-        .share-btn[data-platform="whatsapp"]:hover {
-            color: #25D366;
-        }
-        .share-btn[data-platform="facebook"]:hover {
-            color: #1877F2;
-        }
-        .share-btn[data-platform="twitter"]:hover {
-            color: #1DA1F2;
-        }
-        .share-btn[data-platform="linkedin"]:hover {
-            color: #0A66C2;
-        }
-
-        /* ===== CONVERSION PROGRESS ===== */
-        .conversion-progress {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: 50;
-            background: var(--color-white);
-            padding: 8px 20px;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            border-top: 1px solid rgba(26, 122, 74, 0.06);
-            box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.04);
-        }
-        .conversion-progress .progress-track {
-            flex: 1;
-            height: 3px;
-            background: rgba(26, 122, 74, 0.06);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        .conversion-progress .progress-track .progress-fill {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
-            transition: width 0.5s ease;
-        }
-        #cerrarProgreso {
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: color 0.3s;
-        }
-        #cerrarProgreso:hover {
-            color: var(--color-primary);
-        }
-
-        /* ===== LOGROS PANEL ===== */
-        #logrosPanel {
-            position: fixed;
-            bottom: 100px;
-            left: 100px;
-            z-index: 900;
-            padding: 20px;
-            border-radius: var(--radius);
-            display: none;
-            max-width: 280px;
-            background: var(--color-white);
-            border: 1px solid rgba(26, 122, 74, 0.06);
-            box-shadow: var(--shadow-hover);
-        }
-
-        /* ===== CTA FINAL ===== */
         .cta-final {
             background: rgba(26, 122, 74, 0.02);
             padding: 70px 0 60px;
@@ -1725,6 +1896,7 @@
         .cta-final h2 {
             font-size: 2.6rem;
             margin-bottom: 6px;
+            color: var(--text-primary);
         }
         .cta-final h2 span {
             color: var(--color-primary);
@@ -1807,7 +1979,6 @@
             color: var(--color-primary);
         }
 
-        /* ===== FOOTER ===== */
         .footer {
             background: var(--color-white);
             border-top: 1px solid rgba(26, 122, 74, 0.06);
@@ -1849,6 +2020,7 @@
         .footer p {
             font-size: 0.85rem;
             margin-top: 6px;
+            color: var(--text-muted);
         }
         .footer i {
             color: var(--color-primary);
@@ -1893,11 +2065,6 @@
             .footer .footer-logo img {
                 height: 90px;
             }
-            #logrosPanel {
-                left: 20px;
-                bottom: 100px;
-                max-width: 220px;
-            }
             .btn-sistema {
                 font-size: 1rem;
                 padding: 12px 24px;
@@ -1924,7 +2091,7 @@
                 font-size: 1rem;
             }
             .bg-watermark {
-                opacity: 0.10;
+                opacity: 0.09;
             }
             .bg-watermark img {
                 width: 200vw;
@@ -2026,16 +2193,6 @@
                 height: 46px;
                 font-size: 1.3rem;
             }
-            .color-picker {
-                left: 20px;
-                bottom: 80px;
-            }
-            #logrosPanel {
-                left: 20px;
-                bottom: 80px;
-                max-width: 200px;
-                padding: 16px;
-            }
             .accordion-modern .accordion-header {
                 padding: 16px 20px;
                 gap: 14px;
@@ -2092,10 +2249,6 @@
                 padding: 14px 20px;
                 font-size: 0.9rem;
                 max-width: 90%;
-            }
-            .conversion-progress {
-                padding: 6px 14px;
-                font-size: 0.75rem;
             }
             .mapa-wrapper iframe {
                 height: 200px;
@@ -2195,34 +2348,8 @@
             .bg-watermark img {
                 width: 250vw;
             }
-            .color-picker {
-                left: 12px;
-                bottom: 70px;
-            }
-            #colorToggle {
-                padding: 8px 10px;
-                font-size: 1rem;
-            }
-            .color-btn {
-                width: 26px;
-                height: 26px;
-            }
-            #logrosPanel {
-                left: 12px;
-                bottom: 70px;
-                max-width: 170px;
-                padding: 12px;
-            }
             .reseñas-grid {
                 grid-template-columns: 1fr !important;
-            }
-            .share-buttons {
-                gap: 8px;
-            }
-            .share-btn {
-                width: 34px;
-                height: 34px;
-                font-size: 0.9rem;
             }
         }
     </style>
@@ -2231,9 +2358,6 @@
 
     <!-- ===== SKIP LINK ===== -->
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
-
-    <!-- ===== PROGRESS BAR ===== -->
-    <div id="progressBar" class="progress-bar"></div>
 
     <!-- ===== FONDO ===== -->
     <div class="main-bg"></div>
@@ -2245,7 +2369,7 @@
     <div class="light-sparkle"></div>
     <div class="light-sparkle"></div>
 
-    <!-- ===== MARCA DE AGUA - LOGO GIGANTE (MÁS VISIBLE) ===== -->
+    <!-- ===== MARCA DE AGUA ===== -->
     <div class="bg-watermark">
         <img src="logo.png" alt="Asociados 2506" loading="lazy">
     </div>
@@ -2313,38 +2437,6 @@
             <span id="toastMessage">¡Mensaje enviado con éxito!</span>
         </div>
 
-        <!-- ===== NOTIFICACION BANNER ===== -->
-        <div id="notificacionBanner" style="display:none;position:fixed;bottom:100px;left:50%;transform:translateX(-50%);z-index:900;max-width:400px;width:90%;">
-            <div class="glass" style="padding:16px 20px;display:flex;align-items:center;gap:14px;">
-                <i class="fas fa-bell" style="color:var(--color-primary);font-size:1.4rem;"></i>
-                <div style="flex:1;">
-                    <div style="font-weight:600;font-size:0.9rem;color:var(--text-primary);">Recibe novedades</div>
-                    <div style="color:var(--text-muted);font-size:0.8rem;">Activa las notificaciones</div>
-                </div>
-                <button id="activarNotificaciones" class="btn-primary" style="padding:6px 16px;font-size:0.75rem;border:none;cursor:pointer;">Activar</button>
-                <button id="cerrarNotificacion" style="background:none;border:none;color:var(--text-muted);font-size:1.2rem;cursor:pointer;">&times;</button>
-            </div>
-        </div>
-
-        <!-- ===== COLOR PICKER ===== -->
-        <div class="color-picker">
-            <button id="colorToggle" class="glass" aria-label="Personalizar colores">
-                <i class="fas fa-palette"></i>
-            </button>
-            <div id="colorOptions">
-                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;">
-                    <button class="color-btn active" style="background:#1A7A4A;" data-color="#1A7A4A" aria-label="Color verde"></button>
-                    <button class="color-btn" style="background:#2196F3;" data-color="#2196F3" aria-label="Color azul"></button>
-                    <button class="color-btn" style="background:#C8A86E;" data-color="#C8A86E" aria-label="Color dorado"></button>
-                    <button class="color-btn" style="background:#E74C3C;" data-color="#E74C3C" aria-label="Color rojo"></button>
-                    <button class="color-btn" style="background:#9B59B6;" data-color="#9B59B6" aria-label="Color morado"></button>
-                    <button class="color-btn" style="background:#F39C12;" data-color="#F39C12" aria-label="Color naranja"></button>
-                    <button class="color-btn" style="background:#1ABC9C;" data-color="#1ABC9C" aria-label="Color turquesa"></button>
-                    <button class="color-btn" style="background:#E67E22;" data-color="#E67E22" aria-label="Color mandarina"></button>
-                </div>
-            </div>
-        </div>
-
         <!-- ===== HEADER ===== -->
         <nav class="navbar" role="navigation" aria-label="Navegación principal">
             <div class="container">
@@ -2357,7 +2449,7 @@
                     </div>
                 </div>
                 <div class="nav-actions">
-                    <a href="#" class="btn-sistema">
+                    <a href="#" class="btn-sistema" id="btnSistema">
                         <i class="fas fa-cog" aria-hidden="true"></i> Sistema
                     </a>
                     <a href="tel:+584127207183" class="nav-phone">
@@ -2381,7 +2473,7 @@
                     <div class="slide-badge"><i class="fas fa-building" aria-hidden="true"></i> Oficina en Centro Seguros La Paz · Caracas</div>
                     <h1>Protegemos el <span class="highlight">Patrimonio</span> de tu Comunidad</h1>
                     <p>Administración con respaldo legal, transparencia financiera y mantenimiento operativo. Ofrecemos un servicio integral que garantiza la tranquilidad y el bienestar de tu comunidad.</p>
-                    <a href="#contacto" class="btn-primary">
+                    <a href="#" class="btn-primary" id="btnAgendaReunion">
                         <i class="fas fa-calendar-check" aria-hidden="true"></i> Agenda reunión
                     </a>
                 </div>
@@ -2389,9 +2481,9 @@
             <div class="slide">
                 <div class="container slide-content">
                     <div class="slide-badge"><i class="fas fa-gavel" aria-hidden="true"></i> Respaldo Legal Total</div>
-                    <h1>Blindaje <span class="highlight">Jurídico</span> para tu Junta Directiva</h1>
+                    <h1>Blindaje <span class="highlight">Jurídico</span> para tu Junta de Condominio</h1>
                     <p>Evita demandas laborales y embargos. Nuestros abogados protegen a tu comunidad con asesoría legal especializada y acompañamiento en cada paso.</p>
-                    <a href="#contacto" class="btn-primary">
+                    <a href="#" class="btn-primary" id="btnProteccionLegal">
                         <i class="fas fa-shield-alt" aria-hidden="true"></i> Quiero protección legal
                     </a>
                 </div>
@@ -2401,7 +2493,7 @@
                     <div class="slide-badge"><i class="fas fa-chart-line" aria-hidden="true"></i> Transparencia Financiera</div>
                     <h1>Control total de tus <span class="highlight">Gastos Comunes</span></h1>
                     <p>Portal web 24/7 para que cada propietario vea cada céntimo de su inversión. Finanzas claras y rendición de cuentas detallada mes a mes.</p>
-                    <a href="#contacto" class="btn-primary">
+                    <a href="#" class="btn-primary" id="btnVerPortalWeb">
                         <i class="fas fa-laptop" aria-hidden="true"></i> Ver portal web
                     </a>
                 </div>
@@ -2432,7 +2524,7 @@
                     <div class="problema-card">
                         <i class="fas fa-gavel" aria-hidden="true"></i>
                         <h4>Juntas sin respaldo</h4>
-                        <p>La directiva expuesta a demandas. Te damos blindaje legal y asesoría constante para que tomes decisiones con total seguridad.</p>
+                        <p>La junta de condominio expuesta a demandas. Te damos blindaje legal y asesoría constante para que tomes decisiones con total seguridad.</p>
                     </div>
                 </div>
             </div>
@@ -2450,7 +2542,7 @@
                             <i class="fas fa-balance-scale" aria-hidden="true"></i>
                         </div>
                         <h3>Consultoría Jurídica</h3>
-                        <p>Cobranza judicial y extrajudicial. Asesoría legal para blindar a la junta directiva y resolver conflictos de copropietarios con eficacia y profesionalismo.</p>
+                        <p>Cobranza judicial y extrajudicial. Asesoría legal para blindar a la junta de condominio y resolver conflictos de copropietarios con eficacia y profesionalismo.</p>
                         <span class="badge-legal"><i class="fas fa-check" aria-hidden="true"></i> Abogados especializados</span>
                     </div>
                     <div class="servicio-item">
@@ -2524,7 +2616,7 @@
                 </div>
                 <div class="testimonial">
                     <p>“Desde que Asociados 2506 tomó el control, los gastos comunes bajaron y la morosidad se redujo drásticamente. Ya no tenemos que estar pendientes de nada. La tranquilidad que nos han dado es invaluable.”</p>
-                    <div class="autor">— Junta Directiva · Residencias Castellana Plaza</div>
+                    <div class="autor">— Junta de Condominio · Residencias Castellana Plaza</div>
                 </div>
             </div>
         </section>
@@ -2541,17 +2633,17 @@
                 <div class="reseñas-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
                     <div class="glass-card reseña-item" style="padding:20px;">
                         <div style="color:var(--color-accent);font-size:1.2rem;">⭐⭐⭐⭐⭐</div>
-                        <p style="margin:10px 0;font-style:italic;color:var(--text-secondary);">"Excelente servicio, muy profesionales y transparentes. Recomiendo ampliamente."</p>
+                        <p style="margin:10px 0;font-style:italic;">"Excelente servicio, muy profesionales y transparentes. Recomiendo ampliamente."</p>
                         <div style="font-size:0.85rem;color:var(--color-primary);">— María G.</div>
                     </div>
                     <div class="glass-card reseña-item" style="padding:20px;">
                         <div style="color:var(--color-accent);font-size:1.2rem;">⭐⭐⭐⭐⭐</div>
-                        <p style="margin:10px 0;font-style:italic;color:var(--text-secondary);">"La morosidad bajó un 80% en 3 meses. Increíble el cambio que lograron."</p>
+                        <p style="margin:10px 0;font-style:italic;">"La morosidad bajó un 80% en 3 meses. Increíble el cambio que lograron."</p>
                         <div style="font-size:0.85rem;color:var(--color-primary);">— Carlos R.</div>
                     </div>
                     <div class="glass-card reseña-item" style="padding:20px;">
                         <div style="color:var(--color-accent);font-size:1.2rem;">⭐⭐⭐⭐⭐</div>
-                        <p style="margin:10px 0;font-style:italic;color:var(--text-secondary);">"El portal web es súper intuitivo, todo al alcance de mi mano. Excelente."</p>
+                        <p style="margin:10px 0;font-style:italic;">"El portal web es súper intuitivo, todo al alcance de mi mano. Excelente."</p>
                         <div style="font-size:0.85rem;color:var(--color-primary);">— Ana P.</div>
                     </div>
                 </div>
@@ -2595,7 +2687,8 @@
                         </p>
 
                         <div class="accordion-modern">
-                            <div class="accordion-item active" data-socia="dinia">
+                            <!-- DINIA ROJAS - CERRADO POR DEFECTO -->
+                            <div class="accordion-item" data-socia="dinia">
                                 <div class="accordion-header" onclick="toggleAccordion(this)">
                                     <div class="foto-mini">
                                         <img src="dinia-rojas.png" alt="Dinia Rojas - Socia Fundadora" loading="lazy">
@@ -2625,6 +2718,7 @@
                                 </div>
                             </div>
 
+                            <!-- IRIS GALLARDO - CERRADO POR DEFECTO -->
                             <div class="accordion-item" data-socia="iris">
                                 <div class="accordion-header" onclick="toggleAccordion(this)">
                                     <div class="foto-mini">
@@ -2668,7 +2762,7 @@
         <section class="calculadora section-padding-sm">
             <div class="container">
                 <h3 class="text-center glow-text">📊 ¿Cuánto puedes ahorrar?</h3>
-                <p class="sub text-center" style="color:var(--text-muted);margin-bottom:20px;">Simula el ahorro mensual con nuestra gestión</p>
+                <p class="sub text-center">Simula el ahorro mensual con nuestra gestión</p>
                 <div class="calc-box glass" style="max-width:500px;margin:0 auto;padding:30px;">
                     <label style="color:var(--text-secondary);font-size:0.9rem;">Gastos comunes actuales (en Bs.)</label>
                     <input type="range" id="gastoInput" min="100" max="1000" value="500" step="10">
@@ -2697,8 +2791,8 @@
         <!-- ===== CHECKLIST ===== -->
         <section class="checklist section-padding-sm">
             <div class="container">
-                <h3 class="text-center glow-text">📋 ¿Tu junta directiva está protegida?</h3>
-                <p class="sub text-center" style="color:var(--text-muted);margin-bottom:20px;">Autoevalúa la gestión de tu comunidad</p>
+                <h3 class="text-center glow-text">📋 ¿Tu junta de condominio está protegida?</h3>
+                <p class="sub text-center">Autoevalúa la gestión de tu comunidad</p>
                 <div class="checklist-box glass" style="max-width:600px;margin:0 auto;padding:30px;">
                     <div class="check-item">
                         <label>
@@ -2722,7 +2816,7 @@
                     </div>
                     <div class="check-item">
                         <label>
-                            <input type="checkbox" class="check-input"> <span>La junta directiva tiene respaldo legal</span>
+                            <input type="checkbox" class="check-input"> <span>La junta de condominio tiene respaldo legal</span>
                         </label>
                     </div>
                     <div id="checkResult" style="margin-top:20px;text-align:center;color:var(--text-secondary);"></div>
@@ -2780,12 +2874,6 @@
             <div class="glass" style="display:inline-block;padding:24px;border-radius:var(--radius);margin:0 auto;text-align:center;width:100%;max-width:300px;">
                 <div id="qrCode" style="width:150px;height:150px;margin:0 auto;"></div>
                 <p style="font-size:0.7rem;color:var(--text-muted);margin-top:12px;">Escanea para compartir</p>
-                <div class="share-buttons" style="display:flex;gap:10px;justify-content:center;margin-top:12px;">
-                    <button class="share-btn" data-platform="whatsapp" aria-label="Compartir en WhatsApp"><i class="fab fa-whatsapp"></i></button>
-                    <button class="share-btn" data-platform="facebook" aria-label="Compartir en Facebook"><i class="fab fa-facebook-f"></i></button>
-                    <button class="share-btn" data-platform="twitter" aria-label="Compartir en Twitter"><i class="fab fa-twitter"></i></button>
-                    <button class="share-btn" data-platform="linkedin" aria-label="Compartir en LinkedIn"><i class="fab fa-linkedin-in"></i></button>
-                </div>
             </div>
         </div>
     </section>
@@ -2805,7 +2893,7 @@
                         <option>20 a 50</option>
                         <option>Más de 50</option>
                     </select>
-                    <button type="submit" class="btn-whatsapp">
+                    <button type="submit" class="btn-whatsapp" id="btnEnviarMensaje">
                         <i class="fab fa-whatsapp" aria-hidden="true"></i> Enviar mensaje
                     </button>
                 </form>
@@ -2829,57 +2917,6 @@
         </div>
     </footer>
 
-    <!-- ===== CONVERSION PROGRESS ===== -->
-    <div class="conversion-progress" id="conversionProgress">
-        <div style="flex:1;">
-            <div style="display:flex;justify-content:space-between;font-size:0.7rem;color:var(--text-muted);margin-bottom:2px;">
-                <span>0%</span>
-                <span id="progresoTexto">0% completado</span>
-                <span>100%</span>
-            </div>
-            <div class="progress-track">
-                <div class="progress-fill" id="progresoBarra"></div>
-            </div>
-        </div>
-        <button id="cerrarProgreso" aria-label="Cerrar barra de progreso">&times;</button>
-    </div>
-
-    <!-- ===== LOGROS PANEL ===== -->
-    <div id="logrosPanel">
-        <div style="display:flex;justify-content:space-between;margin-bottom:12px;">
-            <span style="font-weight:600;color:var(--text-primary);">🏆 Logros</span>
-            <button id="cerrarLogros" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1.2rem;">&times;</button>
-        </div>
-        <div id="insigniasContainer"></div>
-    </div>
-
-    <!-- ===== NPS MODAL ===== -->
-    <div id="npsModal" class="help-modal">
-        <div class="help-content" style="max-width:450px;">
-            <div class="help-header">
-                <h3><i class="fas fa-star" style="color:var(--color-accent);"></i> ¿Qué tan satisfecho estás?</h3>
-                <button id="closeNps" class="close-help">&times;</button>
-            </div>
-            <div style="text-align:center;">
-                <p style="color:var(--text-secondary);margin-bottom:16px;">Del 0 al 10, ¿qué tanto recomendarías Asociados 2506?</p>
-                <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:16px;" id="npsOptions">
-                    <button class="nps-btn" style="background:rgba(26,122,74,0.04);border:1px solid rgba(26,122,74,0.04);border-radius:50%;width:36px;height:36px;color:var(--text-primary);cursor:pointer;transition:all 0.3s ease;font-weight:700;" data-value="0">0</button>
-                    <button class="nps-btn" style="background:rgba(26,122,74,0.04);border:1px solid rgba(26,122,74,0.04);border-radius:50%;width:36px;height:36px;color:var(--text-primary);cursor:pointer;transition:all 0.3s ease;font-weight:700;" data-value="1">1</button>
-                    <button class="nps-btn" style="background:rgba(26,122,74,0.04);border:1px solid rgba(26,122,74,0.04);border-radius:50%;width:36px;height:36px;color:var(--text-primary);cursor:pointer;transition:all 0.3s ease;font-weight:700;" data-value="2">2</button>
-                    <button class="nps-btn" style="background:rgba(26,122,74,0.04);border:1px solid rgba(26,122,74,0.04);border-radius:50%;width:36px;height:36px;color:var(--text-primary);cursor:pointer;transition:all 0.3s ease;font-weight:700;" data-value="3">3</button>
-                    <button class="nps-btn" style="background:rgba(26,122,74,0.04);border:1px solid rgba(26,122,74,0.04);border-radius:50%;width:36px;height:36px;color:var(--text-primary);cursor:pointer;transition:all 0.3s ease;font-weight:700;" data-value="4">4</button>
-                    <button class="nps-btn" style="background:rgba(26,122,74,0.04);border:1px solid rgba(26,122,74,0.04);border-radius:50%;width:36px;height:36px;color:var(--text-primary);cursor:pointer;transition:all 0.3s ease;font-weight:700;" data-value="5">5</button>
-                    <button class="nps-btn" style="background:rgba(26,122,74,0.04);border:1px solid rgba(26,122,74,0.04);border-radius:50%;width:36px;height:36px;color:var(--text-primary);cursor:pointer;transition:all 0.3s ease;font-weight:700;" data-value="6">6</button>
-                    <button class="nps-btn" style="background:rgba(26,122,74,0.04);border:1px solid rgba(26,122,74,0.04);border-radius:50%;width:36px;height:36px;color:var(--text-primary);cursor:pointer;transition:all 0.3s ease;font-weight:700;" data-value="7">7</button>
-                    <button class="nps-btn" style="background:rgba(26,122,74,0.04);border:1px solid rgba(26,122,74,0.04);border-radius:50%;width:36px;height:36px;color:var(--text-primary);cursor:pointer;transition:all 0.3s ease;font-weight:700;" data-value="8">8</button>
-                    <button class="nps-btn" style="background:rgba(26,122,74,0.04);border:1px solid rgba(26,122,74,0.04);border-radius:50%;width:36px;height:36px;color:var(--text-primary);cursor:pointer;transition:all 0.3s ease;font-weight:700;" data-value="9">9</button>
-                    <button class="nps-btn" style="background:rgba(26,122,74,0.04);border:1px solid rgba(26,122,74,0.04);border-radius:50%;width:36px;height:36px;color:var(--text-primary);cursor:pointer;transition:all 0.3s ease;font-weight:700;" data-value="10">10</button>
-                </div>
-                <div id="npsResult" style="font-size:0.9rem;color:var(--text-secondary);"></div>
-            </div>
-        </div>
-    </div>
-
 </div>
 
 <!-- ============================================================
@@ -2893,274 +2930,117 @@ SCRIPTS
             'Asociados 2506': 'Asociados 2506',
             'R.I.F. J-50343186-5': 'R.I.F. J-50343186-5',
             'Sistema': 'Sistema',
-            'Sistema Administrativo': 'Sistema Administrativo',
-            'Oficina en Centro Seguros La Paz · Caracas': 'Oficina en Centro Seguros La Paz · Caracas',
-            'Protegemos el Patrimonio de tu Comunidad': 'Protegemos el Patrimonio de tu Comunidad',
-            'Administración con respaldo legal, transparencia financiera y mantenimiento operativo. Ofrecemos un servicio integral que garantiza la tranquilidad y el bienestar de tu comunidad.': 'Administración con respaldo legal, transparencia financiera y mantenimiento operativo. Ofrecemos un servicio integral que garantiza la tranquilidad y el bienestar de tu comunidad.',
             'Agenda reunión': 'Agenda reunión',
-            'Blindaje Jurídico para tu Junta Directiva': 'Blindaje Jurídico para tu Junta Directiva',
-            'Evita demandas laborales y embargos. Nuestros abogados protegen a tu comunidad con asesoría legal especializada y acompañamiento en cada paso.': 'Evita demandas laborales y embargos. Nuestros abogados protegen a tu comunidad con asesoría legal especializada y acompañamiento en cada paso.',
             'Quiero protección legal': 'Quiero protección legal',
-            'Control total de tus Gastos Comunes': 'Control total de tus Gastos Comunes',
-            'Portal web 24/7 para que cada propietario vea cada céntimo de su inversión. Finanzas claras y rendición de cuentas detallada mes a mes.': 'Portal web 24/7 para que cada propietario vea cada céntimo de su inversión. Finanzas claras y rendición de cuentas detallada mes a mes.',
             'Ver portal web': 'Ver portal web',
-            '¿Tu condominio sufre de esto?': '¿Tu condominio sufre de esto?',
-            'Estos son los síntomas de una mala administración. Nosotros los eliminamos.': 'Estos son los síntomas de una mala administración. Nosotros los eliminamos.',
-            'Morosidad imparable': 'Morosidad imparable',
-            'Vecinos que no pagan y no hay consecuencias. Nosotros gestionamos cobranza judicial y extrajudicial para garantizar la liquidez de tu comunidad.': 'Vecinos que no pagan y no hay consecuencias. Nosotros gestionamos cobranza judicial y extrajudicial para garantizar la liquidez de tu comunidad.',
-            'Mantenimiento reactivo': 'Mantenimiento reactivo',
-            'Esperar a que se rompa el ascensor o la bomba. Hacemos preventivo y ahorramos dinero, alargando la vida útil de los equipos.': 'Esperar a que se rompa el ascensor o la bomba. Hacemos preventivo y ahorramos dinero, alargando la vida útil de los equipos.',
-            'Juntas sin respaldo': 'Juntas sin respaldo',
-            'La directiva expuesta a demandas. Te damos blindaje legal y asesoría constante para que tomes decisiones con total seguridad.': 'La directiva expuesta a demandas. Te damos blindaje legal y asesoría constante para que tomes decisiones con total seguridad.',
-            'Nuestra Gestión': 'Nuestra Gestión',
-            'Los 3 Pilares de Asociados 2506': 'Los 3 Pilares de Asociados 2506',
-            'Excelencia, dedicación y tecnología para tu edificio.': 'Excelencia, dedicación y tecnología para tu edificio.',
-            'Consultoría Jurídica': 'Consultoría Jurídica',
-            'Cobranza judicial y extrajudicial. Asesoría legal para blindar a la junta directiva y resolver conflictos de copropietarios con eficacia y profesionalismo.': 'Cobranza judicial y extrajudicial. Asesoría legal para blindar a la junta directiva y resolver conflictos de copropietarios con eficacia y profesionalismo.',
-            'Abogados especializados': 'Abogados especializados',
-            'Portal Web + Finanzas': 'Portal Web + Finanzas',
-            'Rendición de cuentas detallada. Cada propietario ve en tiempo real los gastos, fondo de reserva y deuda de morosos 24/7 desde cualquier dispositivo.': 'Rendición de cuentas detallada. Cada propietario ve en tiempo real los gastos, fondo de reserva y deuda de morosos 24/7 desde cualquier dispositivo.',
-            'Transparencia total': 'Transparencia total',
-            'Operaciones y Mantenimiento': 'Operaciones y Mantenimiento',
-            'Coordinación de ascensores, portones eléctricos, sistemas hidroneumáticos y CCTV. Supervisión constante de proveedores para garantizar la calidad del servicio.': 'Coordinación de ascensores, portones eléctricos, sistemas hidroneumáticos y CCTV. Supervisión constante de proveedores para garantizar la calidad del servicio.',
-            'Mantenimiento preventivo': 'Mantenimiento preventivo',
-            'Edificios administrados': 'Edificios administrados',
-            'Años de experiencia': 'Años de experiencia',
-            'Propietarios satisfechos': 'Propietarios satisfechos',
-            '% de morosidad reducida': '% de morosidad reducida',
-            'Comunidades que ya confían en nosotros': 'Comunidades que ya confían en nosotros',
-            'Más de 8 edificios en Caracas respaldan nuestra gestión.': 'Más de 8 edificios en Caracas respaldan nuestra gestión.',
-            'Desde que Asociados 2506 tomó el control, los gastos comunes bajaron y la morosidad se redujo drásticamente. Ya no tenemos que estar pendientes de nada. La tranquilidad que nos han dado es invaluable.': 'Desde que Asociados 2506 tomó el control, los gastos comunes bajaron y la morosidad se redujo drásticamente. Ya no tenemos que estar pendientes de nada. La tranquilidad que nos han dado es invaluable.',
-            'Junta Directiva · Residencias Castellana Plaza': 'Junta Directiva · Residencias Castellana Plaza',
-            'Lo que dicen nuestros clientes': 'Lo que dicen nuestros clientes',
-            'Excelente servicio, muy profesionales y transparentes. Recomiendo ampliamente.': 'Excelente servicio, muy profesionales y transparentes. Recomiendo ampliamente.',
-            'La morosidad bajó un 80% en 3 meses. Increíble el cambio que lograron.': 'La morosidad bajó un 80% en 3 meses. Increíble el cambio que lograron.',
-            'El portal web es súper intuitivo, todo al alcance de mi mano. Excelente.': 'El portal web es súper intuitivo, todo al alcance de mi mano. Excelente.',
-            'Sobre Nosotros': 'Sobre Nosotros',
-            'Conoce el equipo humano detrás de Asociados 2506': 'Conoce el equipo humano detrás de Asociados 2506',
-            'Misión': 'Misión',
-            'Entender las necesidades de nuestros clientes y prestarles un servicio de calidad, apoyados en un excelente equipo de profesionales orientados a brindarles una solución de acuerdo a sus necesidades.': 'Entender las necesidades de nuestros clientes y prestarles un servicio de calidad, apoyados en un excelente equipo de profesionales orientados a brindarles una solución de acuerdo a sus necesidades.',
-            'Visión': 'Visión',
-            'Ser una empresa innovadora y confiable que se desarrolla con altos estándares de servicio de atención de forma honesta, positiva contando con la capacidad de todos los profesionales que la integran para los objetivos y metas propuestas.': 'Ser una empresa innovadora y confiable que se desarrolla con altos estándares de servicio de atención de forma honesta, positiva contando con la capacidad de todos los profesionales que la integran para los objetivos y metas propuestas.',
-            'Valores': 'Valores',
-            'Calidad': 'Calidad',
-            'Seriedad': 'Seriedad',
-            'Responsabilidad': 'Responsabilidad',
-            'Honestidad': 'Honestidad',
-            'Compromiso': 'Compromiso',
-            'En Asociados 2506 somos un equipo de dos socias fundadoras con amplia experiencia en la administración de condominios. Nuestra misión es brindar un servicio personalizado, transparente y eficiente que realmente resuelva los problemas de las comunidades.': 'En Asociados 2506 somos un equipo de dos socias fundadoras con amplia experiencia en la administración de condominios. Nuestra misión es brindar un servicio personalizado, transparente y eficiente que realmente resuelva los problemas de las comunidades.',
-            'Creemos en la importancia de humanizar la administración, escuchando activamente a cada comunidad y adaptándonos a sus necesidades particulares. Porque cada edificio es único y merece una atención especial.': 'Creemos en la importancia de humanizar la administración, escuchando activamente a cada comunidad y adaptándonos a sus necesidades particulares. Porque cada edificio es único y merece una atención especial.',
-            'Socia Fundadora': 'Socia Fundadora',
-            'Fundadora': 'Fundadora',
-            'Dinia Rojas es cofundadora de Asociados 2506 con una trayectoria de más de 15 años en el sector de administración de condominios. Su enfoque está centrado en la transparencia, la comunicación efectiva y la construcción de relaciones de confianza con cada comunidad que gestiona. Su liderazgo y visión han sido fundamentales para posicionar a la empresa como un referente en el sector.': 'Dinia Rojas es cofundadora de Asociados 2506 con una trayectoria de más de 15 años en el sector de administración de condominios. Su enfoque está centrado en la transparencia, la comunicación efectiva y la construcción de relaciones de confianza con cada comunidad que gestiona. Su liderazgo y visión han sido fundamentales para posicionar a la empresa como un referente en el sector.',
-            'Iris Gallardo es cofundadora de Asociados 2506 con amplia experiencia en atención al cliente y gestión de comunidades. Su pasión es crear entornos armónicos donde cada propietario se sienta escuchado y valorado. Su enfoque humano y cercano ha sido clave para el éxito de la empresa, construyendo relaciones duraderas con cada comunidad que administra.': 'Iris Gallardo es cofundadora de Asociados 2506 con amplia experiencia en atención al cliente y gestión de comunidades. Su pasión es crear entornos armónicos donde cada propietario se sienta escuchado y valorado. Su enfoque humano y cercano ha sido clave para el éxito de la empresa, construyendo relaciones duraderas con cada comunidad que administra.',
-            '¿Cuánto puedes ahorrar?': '¿Cuánto puedes ahorrar?',
-            'Simula el ahorro mensual con nuestra gestión': 'Simula el ahorro mensual con nuestra gestión',
-            'Gastos comunes actuales (en Bs.)': 'Gastos comunes actuales (en Bs.)',
-            'Gasto actual': 'Gasto actual',
-            'Con Asociados 2506': 'Con Asociados 2506',
-            'Ahorro mensual': 'Ahorro mensual',
-            '¿Tu junta directiva está protegida?': '¿Tu junta directiva está protegida?',
-            'Autoevalúa la gestión de tu comunidad': 'Autoevalúa la gestión de tu comunidad',
-            'Tenemos asesoría legal activa': 'Tenemos asesoría legal activa',
-            'Los gastos comunes son transparentes': 'Los gastos comunes son transparentes',
-            'El mantenimiento es preventivo': 'El mantenimiento es preventivo',
-            'Tenemos un fondo de reserva': 'Tenemos un fondo de reserva',
-            'La junta directiva tiene respaldo legal': 'La junta directiva tiene respaldo legal',
-            'Evaluar mi comunidad': 'Evaluar mi comunidad',
-            '¡Excelente! Tu comunidad está bien gestionada.': '¡Excelente! Tu comunidad está bien gestionada.',
-            'Vas por buen camino, pero necesitas mejorar algunos aspectos.': 'Vas por buen camino, pero necesitas mejorar algunos aspectos.',
-            'Tu comunidad necesita atención urgente. ¡Contáctanos!': 'Tu comunidad necesita atención urgente. ¡Contáctanos!',
-            'Conoce a nuestras Fundadoras': 'Conoce a nuestras Fundadoras',
-            'Descubre quiénes están detrás de la gestión de tu condominio': 'Descubre quiénes están detrás de la gestión de tu condominio',
-            'Conoce a nuestro equipo': 'Conoce a nuestro equipo',
-            'Experiencia y trayectoria': 'Experiencia y trayectoria',
-            'Compromiso con tu comunidad': 'Compromiso con tu comunidad',
-            'Nuestra Oficina': 'Nuestra Oficina',
-            'Comparte esta página': 'Comparte esta página',
-            'Escanea para compartir': 'Escanea para compartir',
-            'Deja de perder tiempo. Hablemos.': 'Deja de perder tiempo. Hablemos.',
-            'Comunícate con nosotros de Lunes a Viernes 8:30am a 3:30pm o déjanos tus datos.': 'Comunícate con nosotros de Lunes a Viernes 8:30am a 3:30pm o déjanos tus datos.',
-            'Tu nombre completo': 'Tu nombre completo',
-            'Nombre de tu edificio / condominio': 'Nombre de tu edificio / condominio',
-            '¿Cuántos apartamentos tiene?': '¿Cuántos apartamentos tiene?',
-            'Menos de 20': 'Menos de 20',
-            '20 a 50': '20 a 50',
-            'Más de 50': 'Más de 50',
             'Enviar mensaje': 'Enviar mensaje',
-            'Llámanos:': 'Llámanos:',
-            'Av. Francisco Miranda, Centro Seguros La Paz - Piso 8 Torre Sur Ofc S82, Caracas.': 'Av. Francisco Miranda, Centro Seguros La Paz - Piso 8 Torre Sur Ofc S82, Caracas.',
-            'Protegiendo tu patrimonio': 'Protegiendo tu patrimonio',
-            '¿Necesitas ayuda?': '¿Necesitas ayuda?',
-            'Hablar por WhatsApp': 'Hablar por WhatsApp',
-            'Llamar ahora': 'Llamar ahora',
-            'Enviar correo': 'Enviar correo',
-            '¿Cuánto cuesta la administración?': '¿Cuánto cuesta la administración?',
-            'Ofrecemos planes personalizados según el tamaño y necesidades de tu comunidad. Contáctanos para una cotización sin compromiso.': 'Ofrecemos planes personalizados según el tamaño y necesidades de tu comunidad. Contáctanos para una cotización sin compromiso.',
-            '¿Cómo funciona el portal web?': '¿Cómo funciona el portal web?',
-            'Cada propietario recibe acceso 24/7 para ver finanzas, pagos y documentos legales en tiempo real.': 'Cada propietario recibe acceso 24/7 para ver finanzas, pagos y documentos legales en tiempo real.',
-            '¿Qué incluye el servicio?': '¿Qué incluye el servicio?',
-            'Asesoría legal, gestión financiera, mantenimiento preventivo, portal web y atención personalizada.': 'Asesoría legal, gestión financiera, mantenimiento preventivo, portal web y atención personalizada.',
-            '¿Qué tan satisfecho estás?': '¿Qué tan satisfecho estás?',
-            'Del 0 al 10, ¿qué tanto recomendarías Asociados 2506?': 'Del 0 al 10, ¿qué tanto recomendarías Asociados 2506?',
-            '¡Excelente! Nos alegra que estés satisfecho.': '¡Excelente! Nos alegra que estés satisfecho.',
-            '¡Bien! ¿Cómo podemos mejorar a 10?': '¡Bien! ¿Cómo podemos mejorar a 10?',
-            'Gracias por tu honestidad. Trabajamos para mejorar.': 'Gracias por tu honestidad. Trabajamos para mejorar.',
-            'Recibe novedades': 'Recibe novedades',
-            'Activa las notificaciones': 'Activa las notificaciones',
-            'Activar': 'Activar',
-            'Logros': 'Logros',
-            'Explorador': 'Explorador',
-            'Visitaste 5 secciones': 'Visitaste 5 secciones',
-            'Comunidad': 'Comunidad',
-            'Viste la sección de clientes': 'Viste la sección de clientes',
-            'Conectado': 'Conectado',
-            'Llegaste al formulario de contacto': 'Llegaste al formulario de contacto',
-            'Ahorrador': 'Ahorrador',
-            'Usaste la calculadora': 'Usaste la calculadora',
-            'Evaluador': 'Evaluador',
-            'Evaluaste tu comunidad': 'Evaluaste tu comunidad',
-            '% completado': '% completado'
+            '¡Gracias! Te contactaremos en breve.': '¡Gracias! Te contactaremos en breve.',
+            'Por favor, completa todos los campos.': 'Por favor, completa todos los campos.',
+            'Idioma cambiado a Español': 'Idioma cambiado a Español',
+            'Idioma cambiado a English': 'Idioma cambiado a English'
         },
         en: {
             'ADMINISTRADORA': 'PROPERTY MANAGER',
             'Asociados 2506': 'Associates 2506',
-            'R.I.F. J-50343186-5': 'R.I.F. J-50343186-5',
             'Sistema': 'System',
-            'Sistema Administrativo': 'Admin System',
-            'Oficina en Centro Seguros La Paz · Caracas': 'Office at Centro Seguros La Paz · Caracas',
-            'Protegemos el Patrimonio de tu Comunidad': 'We Protect your Community\'s Assets',
-            'Administración con respaldo legal, transparencia financiera y mantenimiento operativo. Ofrecemos un servicio integral que garantiza la tranquilidad y el bienestar de tu comunidad.': 'Management with legal backing, financial transparency and operational maintenance. We offer a comprehensive service that guarantees the peace of mind and well-being of your community.',
             'Agenda reunión': 'Schedule meeting',
-            'Blindaje Jurídico para tu Junta Directiva': 'Legal Shield for your Board of Directors',
-            'Evita demandas laborales y embargos. Nuestros abogados protegen a tu comunidad con asesoría legal especializada y acompañamiento en cada paso.': 'Avoid labor lawsuits and garnishments. Our lawyers protect your community with specialized legal advice and support at every step.',
             'Quiero protección legal': 'I want legal protection',
-            'Control total de tus Gastos Comunes': 'Total control of your Common Expenses',
-            'Portal web 24/7 para que cada propietario vea cada céntimo de su inversión. Finanzas claras y rendición de cuentas detallada mes a mes.': '24/7 web portal so that each owner can see every penny of their investment. Clear finances and detailed monthly accountability.',
             'Ver portal web': 'View web portal',
-            '¿Tu condominio sufre de esto?': 'Does your condominium suffer from this?',
-            'Estos son los síntomas de una mala administración. Nosotros los eliminamos.': 'These are the symptoms of poor management. We eliminate them.',
-            'Morosidad imparable': 'Unstoppable delinquency',
-            'Vecinos que no pagan y no hay consecuencias. Nosotros gestionamos cobranza judicial y extrajudicial para garantizar la liquidez de tu comunidad.': 'Neighbors who don\'t pay and there are no consequences. We manage judicial and extrajudicial collections to guarantee the liquidity of your community.',
-            'Mantenimiento reactivo': 'Reactive maintenance',
-            'Esperar a que se rompa el ascensor o la bomba. Hacemos preventivo y ahorramos dinero, alargando la vida útil de los equipos.': 'Waiting for the elevator or pump to break. We do preventive maintenance and save money, extending the useful life of the equipment.',
-            'Juntas sin respaldo': 'Boards without backing',
-            'La directiva expuesta a demandas. Te damos blindaje legal y asesoría constante para que tomes decisiones con total seguridad.': 'The board exposed to lawsuits. We give you legal shield and constant advice so you can make decisions with total confidence.',
-            'Nuestra Gestión': 'Our Management',
-            'Los 3 Pilares de Asociados 2506': 'The 3 Pillars of Associates 2506',
-            'Excelencia, dedicación y tecnología para tu edificio.': 'Excellence, dedication and technology for your building.',
-            'Consultoría Jurídica': 'Legal Consulting',
-            'Cobranza judicial y extrajudicial. Asesoría legal para blindar a la junta directiva y resolver conflictos de copropietarios con eficacia y profesionalismo.': 'Judicial and extrajudicial collection. Legal advice to shield the board of directors and resolve co-owner conflicts effectively and professionally.',
-            'Abogados especializados': 'Specialized lawyers',
-            'Portal Web + Finanzas': 'Web Portal + Finance',
-            'Rendición de cuentas detallada. Cada propietario ve en tiempo real los gastos, fondo de reserva y deuda de morosos 24/7 desde cualquier dispositivo.': 'Detailed accountability. Each owner sees in real time the expenses, reserve fund and delinquent debt 24/7 from any device.',
-            'Transparencia total': 'Total transparency',
-            'Operaciones y Mantenimiento': 'Operations and Maintenance',
-            'Coordinación de ascensores, portones eléctricos, sistemas hidroneumáticos y CCTV. Supervisión constante de proveedores para garantizar la calidad del servicio.': 'Coordination of elevators, electric gates, hydropneumatic systems and CCTV. Constant supervision of suppliers to guarantee service quality.',
-            'Mantenimiento preventivo': 'Preventive maintenance',
-            'Edificios administrados': 'Buildings managed',
-            'Años de experiencia': 'Years of experience',
-            'Propietarios satisfechos': 'Satisfied owners',
-            '% de morosidad reducida': '% delinquency reduced',
-            'Comunidades que ya confían en nosotros': 'Communities that already trust us',
-            'Más de 8 edificios en Caracas respaldan nuestra gestión.': 'More than 8 buildings in Caracas support our management.',
-            'Desde que Asociados 2506 tomó el control, los gastos comunes bajaron y la morosidad se redujo drásticamente. Ya no tenemos que estar pendientes de nada. La tranquilidad que nos han dado es invaluable.': 'Since Associates 2506 took control, common expenses decreased and delinquency dropped drastically. We no longer have to worry about anything. The peace of mind they have given us is invaluable.',
-            'Junta Directiva · Residencias Castellana Plaza': 'Board of Directors · Castellana Plaza Residences',
-            'Lo que dicen nuestros clientes': 'What our clients say',
-            'Excelente servicio, muy profesionales y transparentes. Recomiendo ampliamente.': 'Excellent service, very professional and transparent. I highly recommend.',
-            'La morosidad bajó un 80% en 3 meses. Increíble el cambio que lograron.': 'Delinquency dropped 80% in 3 months. The change they achieved is incredible.',
-            'El portal web es súper intuitivo, todo al alcance de mi mano. Excelente.': 'The web portal is super intuitive, everything at my fingertips. Excellent.',
-            'Sobre Nosotros': 'About Us',
-            'Conoce el equipo humano detrás de Asociados 2506': 'Meet the human team behind Associates 2506',
-            'Misión': 'Mission',
-            'Entender las necesidades de nuestros clientes y prestarles un servicio de calidad, apoyados en un excelente equipo de profesionales orientados a brindarles una solución de acuerdo a sus necesidades.': 'Understand the needs of our clients and provide them with a quality service, supported by an excellent team of professionals oriented to provide them with a solution according to their needs.',
-            'Visión': 'Vision',
-            'Ser una empresa innovadora y confiable que se desarrolla con altos estándares de servicio de atención de forma honesta, positiva contando con la capacidad de todos los profesionales que la integran para los objetivos y metas propuestas.': 'To be an innovative and reliable company that develops with high service standards in an honest, positive way, counting on the capacity of all the professionals that comprise it for the proposed objectives and goals.',
-            'Valores': 'Values',
-            'Calidad': 'Quality',
-            'Seriedad': 'Seriousness',
-            'Responsabilidad': 'Responsibility',
-            'Honestidad': 'Honesty',
-            'Compromiso': 'Commitment',
-            'En Asociados 2506 somos un equipo de dos socias fundadoras con amplia experiencia en la administración de condominios. Nuestra misión es brindar un servicio personalizado, transparente y eficiente que realmente resuelva los problemas de las comunidades.': 'At Associates 2506 we are a team of two founding partners with extensive experience in condominium management. Our mission is to provide a personalized, transparent and efficient service that truly solves the problems of communities.',
-            'Creemos en la importancia de humanizar la administración, escuchando activamente a cada comunidad y adaptándonos a sus necesidades particulares. Porque cada edificio es único y merece una atención especial.': 'We believe in the importance of humanizing management, actively listening to each community and adapting to their particular needs. Because each building is unique and deserves special attention.',
-            'Socia Fundadora': 'Founding Partner',
-            'Fundadora': 'Founder',
-            'Dinia Rojas es cofundadora de Asociados 2506 con una trayectoria de más de 15 años en el sector de administración de condominios. Su enfoque está centrado en la transparencia, la comunicación efectiva y la construcción de relaciones de confianza con cada comunidad que gestiona. Su liderazgo y visión han sido fundamentales para posicionar a la empresa como un referente en el sector.': 'Dinia Rojas is co-founder of Associates 2506 with a career of more than 15 years in the condominium management sector. Her focus is centered on transparency, effective communication and building trusting relationships with each community she manages. Her leadership and vision have been fundamental in positioning the company as a benchmark in the sector.',
-            'Iris Gallardo es cofundadora de Asociados 2506 con amplia experiencia en atención al cliente y gestión de comunidades. Su pasión es crear entornos armónicos donde cada propietario se sienta escuchado y valorado. Su enfoque humano y cercano ha sido clave para el éxito de la empresa, construyendo relaciones duraderas con cada comunidad que administra.': 'Iris Gallardo is co-founder of Associates 2506 with extensive experience in customer service and community management. Her passion is to create harmonious environments where each owner feels heard and valued. Her human and close approach has been key to the success of the company, building lasting relationships with each community she manages.',
-            '¿Cuánto puedes ahorrar?': 'How much can you save?',
-            'Simula el ahorro mensual con nuestra gestión': 'Simulate monthly savings with our management',
-            'Gastos comunes actuales (en Bs.)': 'Current common expenses (in Bs.)',
-            'Gasto actual': 'Current expense',
-            'Con Asociados 2506': 'With Associates 2506',
-            'Ahorro mensual': 'Monthly savings',
-            '¿Tu junta directiva está protegida?': 'Is your board of directors protected?',
-            'Autoevalúa la gestión de tu comunidad': 'Self-evaluate your community management',
-            'Tenemos asesoría legal activa': 'We have active legal advice',
-            'Los gastos comunes son transparentes': 'Common expenses are transparent',
-            'El mantenimiento es preventivo': 'Maintenance is preventive',
-            'Tenemos un fondo de reserva': 'We have a reserve fund',
-            'La junta directiva tiene respaldo legal': 'The board has legal backing',
-            'Evaluar mi comunidad': 'Evaluate my community',
-            '¡Excelente! Tu comunidad está bien gestionada.': 'Excellent! Your community is well managed.',
-            'Vas por buen camino, pero necesitas mejorar algunos aspectos.': 'You are on the right track, but you need to improve some aspects.',
-            'Tu comunidad necesita atención urgente. ¡Contáctanos!': 'Your community needs urgent attention. Contact us!',
-            'Conoce a nuestras Fundadoras': 'Meet our Founders',
-            'Descubre quiénes están detrás de la gestión de tu condominio': 'Discover who is behind the management of your condominium',
-            'Conoce a nuestro equipo': 'Meet our team',
-            'Experiencia y trayectoria': 'Experience and track record',
-            'Compromiso con tu comunidad': 'Commitment to your community',
-            'Nuestra Oficina': 'Our Office',
-            'Comparte esta página': 'Share this page',
-            'Escanea para compartir': 'Scan to share',
-            'Deja de perder tiempo. Hablemos.': 'Stop wasting time. Let\'s talk.',
-            'Comunícate con nosotros de Lunes a Viernes 8:30am a 3:30pm o déjanos tus datos.': 'Contact us Monday to Friday 8:30am to 3:30pm or leave us your details.',
-            'Tu nombre completo': 'Your full name',
-            'Nombre de tu edificio / condominio': 'Name of your building / condominium',
-            '¿Cuántos apartamentos tiene?': 'How many apartments does it have?',
-            'Menos de 20': 'Less than 20',
-            '20 a 50': '20 to 50',
-            'Más de 50': 'More than 50',
             'Enviar mensaje': 'Send message',
-            'Llámanos:': 'Call us:',
-            'Av. Francisco Miranda, Centro Seguros La Paz - Piso 8 Torre Sur Ofc S82, Caracas.': 'Av. Francisco Miranda, Centro Seguros La Paz - Floor 8 South Tower Ofc S82, Caracas.',
-            'Protegiendo tu patrimonio': 'Protecting your assets',
-            '¿Necesitas ayuda?': 'Need help?',
-            'Hablar por WhatsApp': 'Chat on WhatsApp',
-            'Llamar ahora': 'Call now',
-            'Enviar correo': 'Send email',
-            '¿Cuánto cuesta la administración?': 'How much does management cost?',
-            'Ofrecemos planes personalizados según el tamaño y necesidades de tu comunidad. Contáctanos para una cotización sin compromiso.': 'We offer personalized plans according to the size and needs of your community. Contact us for a no-obligation quote.',
-            '¿Cómo funciona el portal web?': 'How does the web portal work?',
-            'Cada propietario recibe acceso 24/7 para ver finanzas, pagos y documentos legales en tiempo real.': 'Each owner receives 24/7 access to view finances, payments and legal documents in real time.',
-            '¿Qué incluye el servicio?': 'What does the service include?',
-            'Asesoría legal, gestión financiera, mantenimiento preventivo, portal web y atención personalizada.': 'Legal advice, financial management, preventive maintenance, web portal and personalized attention.',
-            '¿Qué tan satisfecho estás?': 'How satisfied are you?',
-            'Del 0 al 10, ¿qué tanto recomendarías Asociados 2506?': 'From 0 to 10, how much would you recommend Associates 2506?',
-            '¡Excelente! Nos alegra que estés satisfecho.': 'Excellent! We are glad you are satisfied.',
-            '¡Bien! ¿Cómo podemos mejorar a 10?': 'Good! How can we improve to 10?',
-            'Gracias por tu honestidad. Trabajamos para mejorar.': 'Thanks for your honesty. We work to improve.',
-            'Recibe novedades': 'Receive updates',
-            'Activa las notificaciones': 'Activate notifications',
-            'Activar': 'Activate',
-            'Logros': 'Achievements',
-            'Explorador': 'Explorer',
-            'Visitaste 5 secciones': 'You visited 5 sections',
-            'Comunidad': 'Community',
-            'Viste la sección de clientes': 'You saw the clients section',
-            'Conectado': 'Connected',
-            'Llegaste al formulario de contacto': 'You reached the contact form',
-            'Ahorrador': 'Saver',
-            'Usaste la calculadora': 'You used the calculator',
-            'Evaluador': 'Evaluator',
-            'Evaluaste tu comunidad': 'You evaluated your community',
-            '% completado': '% completed'
+            '¡Gracias! Te contactaremos en breve.': 'Thank you! We will contact you shortly.',
+            'Por favor, completa todos los campos.': 'Please fill in all fields.',
+            'Idioma cambiado a Español': 'Language changed to Spanish',
+            'Idioma cambiado a English': 'Language changed to English'
         }
     };
 
-    // ===== FUNCIÓN DE TRADUCCIÓN =====
     let currentLang = 'es';
 
+    // ===== FUNCIÓN: HACER CLIC EN "ENVIAR MENSAJE" =====
+    function clickEnviarMensaje() {
+        const btnEnviar = document.getElementById('btnEnviarMensaje');
+        if (btnEnviar) {
+            btnEnviar.click();
+            const ctaSection = document.getElementById('contacto');
+            if (ctaSection) {
+                ctaSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        } else {
+            const ctaSection = document.getElementById('contacto');
+            if (ctaSection) {
+                ctaSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+    }
+
+    // ===== FUNCIÓN: HACER CLIC EN "SISTEMA" =====
+    function clickSistema() {
+        const btnSistema = document.getElementById('btnSistema');
+        if (btnSistema) {
+            btnSistema.click();
+        }
+    }
+
+    // ===== EVENTOS DE BOTONES DEL BANNER =====
+    document.addEventListener('DOMContentLoaded', function() {
+        const btnAgenda = document.getElementById('btnAgendaReunion');
+        if (btnAgenda) {
+            btnAgenda.addEventListener('click', function(e) {
+                e.preventDefault();
+                clickEnviarMensaje();
+            });
+        }
+
+        const btnLegal = document.getElementById('btnProteccionLegal');
+        if (btnLegal) {
+            btnLegal.addEventListener('click', function(e) {
+                e.preventDefault();
+                clickEnviarMensaje();
+            });
+        }
+
+        const btnPortal = document.getElementById('btnVerPortalWeb');
+        if (btnPortal) {
+            btnPortal.addEventListener('click', function(e) {
+                e.preventDefault();
+                clickSistema();
+            });
+        }
+    });
+
+    // ===== TOAST =====
+    function showToast(message) {
+        const toast = document.getElementById('toast');
+        const toastMsg = document.getElementById('toastMessage');
+        if (toast && toastMsg) {
+            toastMsg.textContent = message;
+            toast.classList.add('show');
+            clearTimeout(toast._timeout);
+            toast._timeout = setTimeout(function() {
+                toast.classList.remove('show');
+            }, 3500);
+        }
+    }
+
+    // ===== FORMULARIO =====
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const nombre = document.getElementById('nombreInput').value.trim();
+        const edificio = document.getElementById('edificioInput').value.trim();
+        if (nombre && edificio) {
+            const msg = currentLang === 'es' ? '¡Gracias! Te contactaremos en breve.' : 'Thank you! We will contact you shortly.';
+            showToast(msg);
+            this.reset();
+            document.querySelectorAll('#contactForm input, #contactForm select').forEach(input => {
+                localStorage.removeItem('form_' + input.id);
+            });
+        } else {
+            const msg = currentLang === 'es' ? 'Por favor, completa todos los campos.' : 'Please fill in all fields.';
+            showToast(msg);
+        }
+    });
+
+    // ===== TRADUCCIONES =====
     function translatePage(lang) {
         currentLang = lang;
         const texts = translations[lang];
@@ -3170,9 +3050,7 @@ SCRIPTS
             const key = el.getAttribute('data-translate');
             if (texts[key] !== undefined) {
                 if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                    if (el.placeholder) {
-                        el.placeholder = texts[key];
-                    }
+                    if (el.placeholder) el.placeholder = texts[key];
                 } else if (el.tagName === 'SELECT') {
                     el.querySelectorAll('option').forEach(opt => {
                         const optKey = opt.getAttribute('data-translate');
@@ -3181,28 +3059,8 @@ SCRIPTS
                         }
                     });
                 } else {
-                    if (el.innerHTML.includes('<')) {
-                        const clone = el.cloneNode(true);
-                        const walker = document.createTreeWalker(clone, NodeFilter.SHOW_TEXT);
-                        let node;
-                        while (node = walker.nextNode()) {
-                            const trimmed = node.textContent.trim();
-                            if (trimmed && texts[trimmed] !== undefined) {
-                                node.textContent = texts[trimmed];
-                            }
-                        }
-                        el.innerHTML = clone.innerHTML;
-                    } else {
-                        el.textContent = texts[key];
-                    }
+                    el.textContent = texts[key];
                 }
-            }
-        });
-
-        document.querySelectorAll('[data-translate-placeholder]').forEach(el => {
-            const key = el.getAttribute('data-translate-placeholder');
-            if (texts[key] !== undefined) {
-                el.placeholder = texts[key];
             }
         });
 
@@ -3224,19 +3082,11 @@ SCRIPTS
         btn.addEventListener('click', function() {
             const lang = this.dataset.lang;
             translatePage(lang);
-            showToast('Idioma cambiado a ' + (lang === 'es' ? 'Español' : 'English'));
+            showToast(lang === 'es' ? 'Idioma cambiado a Español' : 'Idioma cambiado a English');
         });
     });
 
-    // ===== PROGRESS BAR =====
-    window.addEventListener('scroll', function() {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = (scrollTop / docHeight) * 100;
-        document.getElementById('progressBar').style.width = progress + '%';
-    });
-
-    // ===== SCROLL TO TOP =====
+    // ===== SCROLL TOP =====
     const scrollBtn = document.getElementById('scrollTopBtn');
     window.addEventListener('scroll', function() {
         if (window.scrollY > 400) {
@@ -3247,35 +3097,6 @@ SCRIPTS
     });
     scrollBtn.addEventListener('click', function() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // ===== TOAST =====
-    function showToast(message) {
-        const toast = document.getElementById('toast');
-        document.getElementById('toastMessage').textContent = message;
-        toast.classList.add('show');
-        setTimeout(function() {
-            toast.classList.remove('show');
-        }, 3500);
-    }
-
-    // ===== FORMULARIO =====
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const nombre = document.getElementById('nombreInput').value.trim();
-        const edificio = document.getElementById('edificioInput').value.trim();
-        if (nombre && edificio) {
-            const msg = currentLang === 'es' ? '¡Gracias ' + nombre + '! Te contactaremos en breve.' : 'Thank you ' + nombre + '! We will contact you shortly.';
-            showToast(msg);
-            this.reset();
-            document.querySelectorAll('#contactForm input, #contactForm select').forEach(input => {
-                localStorage.removeItem('form_' + input.id);
-            });
-            actualizarProgreso();
-        } else {
-            const msg = currentLang === 'es' ? 'Por favor, completa todos los campos.' : 'Please fill in all fields.';
-            showToast(msg);
-        }
     });
 
     // ===== AUTO-GUARDADO FORMULARIO =====
@@ -3332,33 +3153,45 @@ SCRIPTS
         start();
     })();
 
-    // ===== ACORDEÓN =====
+    // ===== ACORDEÓN - TODOS CERRADOS POR DEFECTO =====
     function toggleAccordion(header) {
         const item = header.closest('.accordion-item');
         const isActive = item.classList.contains('active');
 
+        // Cerrar todos los acordeones
         document.querySelectorAll('.accordion-modern .accordion-item').forEach(function(el) {
             el.classList.remove('active');
             var body = el.querySelector('.accordion-body');
-            body.style.maxHeight = '0';
-            body.style.padding = '0 28px';
+            if (body) {
+                body.style.maxHeight = '0';
+                body.style.padding = '0 28px';
+            }
         });
 
+        // Si no estaba activo, abrirlo
         if (!isActive) {
             item.classList.add('active');
             var body = item.querySelector('.accordion-body');
-            body.style.maxHeight = body.scrollHeight + 50 + 'px';
-            body.style.padding = '0 28px 24px 28px';
+            if (body) {
+                // Esperar un frame para que el contenido se renderice
+                requestAnimationFrame(function() {
+                    body.style.maxHeight = body.scrollHeight + 50 + 'px';
+                    body.style.padding = '0 28px 24px 28px';
+                });
+            }
         }
     }
 
+    // Inicializar todos los acordeones cerrados
     document.addEventListener('DOMContentLoaded', function() {
-        var activeItem = document.querySelector('.accordion-modern .accordion-item.active');
-        if (activeItem) {
-            var body = activeItem.querySelector('.accordion-body');
-            body.style.maxHeight = body.scrollHeight + 50 + 'px';
-            body.style.padding = '0 28px 24px 28px';
-        }
+        document.querySelectorAll('.accordion-modern .accordion-item').forEach(function(item) {
+            item.classList.remove('active');
+            var body = item.querySelector('.accordion-body');
+            if (body) {
+                body.style.maxHeight = '0';
+                body.style.padding = '0 28px';
+            }
+        });
     });
 
     // ===== HELP MODAL =====
@@ -3417,18 +3250,16 @@ SCRIPTS
         var checks = document.querySelectorAll('.check-input:checked');
         var total = document.querySelectorAll('.check-input').length;
         var result = document.getElementById('checkResult');
-        var msgs = translations[currentLang];
         if (checks.length === total) {
-            result.innerHTML = '✅ ' + msgs['¡Excelente! Tu comunidad está bien gestionada.'];
+            result.innerHTML = '✅ ¡Excelente! Tu comunidad está bien gestionada.';
             result.style.color = '#1A7A4A';
         } else if (checks.length >= 3) {
-            result.innerHTML = '⚠️ ' + msgs['Vas por buen camino, pero necesitas mejorar algunos aspectos.'];
+            result.innerHTML = '⚠️ Vas por buen camino, pero necesitas mejorar algunos aspectos.';
             result.style.color = '#C8A86E';
         } else {
-            result.innerHTML = '🚨 ' + msgs['Tu comunidad necesita atención urgente. ¡Contáctanos!'];
+            result.innerHTML = '🚨 Tu comunidad necesita atención urgente. ¡Contáctanos!';
             result.style.color = '#E74C3C';
         }
-        actualizarProgreso();
     });
 
     // ===== INTERSECTION OBSERVER =====
@@ -3466,7 +3297,7 @@ SCRIPTS
         entries.forEach(function(entry) {
             if (entry.isIntersecting) {
                 const id = entry.target.id;
-                const targets = { contador1: 12, contador2: 16, contador3: 850, contador4: 70 };
+                const targets = { contador1: 12, contador2: 16, contador3: 850, contador4: 20 };
                 animateCounter(entry.target, targets[id] || 0);
                 observerCounters.unobserve(entry.target);
             }
@@ -3497,97 +3328,6 @@ SCRIPTS
         }
     });
 
-    // ===== COLOR PICKER =====
-    const colorToggle = document.getElementById('colorToggle');
-    const colorOptions = document.getElementById('colorOptions');
-
-    colorToggle.addEventListener('click', function() {
-        colorOptions.classList.toggle('active');
-    });
-
-    document.querySelectorAll('.color-btn').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            const color = this.dataset.color;
-            document.documentElement.style.setProperty('--color-primary', color);
-            document.querySelectorAll('.color-btn').forEach(function(b) {
-                b.classList.remove('active');
-            });
-            this.classList.add('active');
-            localStorage.setItem('color_personalizado', color);
-            showToast('🎨 Color personalizado aplicado');
-            colorOptions.classList.remove('active');
-        });
-    });
-
-    const savedColor = localStorage.getItem('color_personalizado');
-    if (savedColor) {
-        document.documentElement.style.setProperty('--color-primary', savedColor);
-        document.querySelectorAll('.color-btn').forEach(function(b) {
-            b.classList.toggle('active', b.dataset.color === savedColor);
-        });
-    }
-
-    // ===== NOTIFICACIONES PUSH =====
-    if (!localStorage.getItem('notificaciones_aceptadas')) {
-        setTimeout(function() {
-            document.getElementById('notificacionBanner').style.display = 'flex';
-        }, 5000);
-    }
-
-    document.getElementById('cerrarNotificacion').addEventListener('click', function() {
-        document.getElementById('notificacionBanner').style.display = 'none';
-    });
-
-    document.getElementById('activarNotificaciones').addEventListener('click', function() {
-        if ('Notification' in window && Notification.permission === 'granted') {
-            new Notification('¡Bienvenido a Asociados 2506!', {
-                body: 'Te mantendremos informado sobre tu comunidad.',
-                icon: 'logo.png'
-            });
-        } else if ('Notification' in window) {
-            Notification.requestPermission().then(function(permission) {
-                if (permission === 'granted') {
-                    new Notification('¡Gracias por suscribirte!', {
-                        body: 'Recibirás novedades importantes.',
-                        icon: 'logo.png'
-                    });
-                }
-            });
-        }
-        localStorage.setItem('notificaciones_aceptadas', 'true');
-        document.getElementById('notificacionBanner').style.display = 'none';
-        const msg = currentLang === 'es' ? '¡Notificaciones activadas!' : 'Notifications activated!';
-        showToast(msg);
-    });
-
-    // ===== NPS =====
-    setTimeout(function() {
-        if (!localStorage.getItem('nps_respondido')) {
-            document.getElementById('npsModal').classList.add('active');
-        }
-    }, 30000);
-
-    document.getElementById('closeNps').addEventListener('click', function() {
-        document.getElementById('npsModal').classList.remove('active');
-    });
-
-    document.querySelectorAll('.nps-btn').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            const value = parseInt(this.dataset.value);
-            const result = document.getElementById('npsResult');
-            const msgs = translations[currentLang];
-            let mensaje = '';
-            if (value >= 9) mensaje = msgs['¡Excelente! Nos alegra que estés satisfecho.'];
-            else if (value >= 7) mensaje = msgs['¡Bien! ¿Cómo podemos mejorar a 10?'];
-            else mensaje = msgs['Gracias por tu honestidad. Trabajamos para mejorar.'];
-            result.innerHTML = mensaje;
-            localStorage.setItem('nps_respondido', 'true');
-            setTimeout(function() {
-                document.getElementById('npsModal').classList.remove('active');
-            }, 3000);
-        });
-    });
-
     // ===== QR CODE =====
     if (typeof QRCode !== 'undefined') {
         new QRCode(document.getElementById("qrCode"), {
@@ -3600,127 +3340,8 @@ SCRIPTS
         });
     }
 
-    // ===== SHARE BUTTONS =====
-    document.querySelectorAll('.share-btn').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent('Asociados 2506 - Administración de Condominios en Caracas');
-            const platform = this.dataset.platform;
-            let shareUrl = '';
-            switch(platform) {
-                case 'whatsapp': shareUrl = 'https://wa.me/?text=' + text + '%20' + url; break;
-                case 'facebook': shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + url; break;
-                case 'twitter': shareUrl = 'https://twitter.com/intent/tweet?text=' + text + '&url=' + url; break;
-                case 'linkedin': shareUrl = 'https://www.linkedin.com/sharing/share-offsite/?url=' + url; break;
-            }
-            window.open(shareUrl, '_blank', 'width=600,height=400');
-        });
-    });
-
-    // ===== CONVERSION PROGRESS =====
-    function actualizarProgreso() {
-        var pasos = [
-            document.querySelector('.problema') ? 1 : 0,
-            document.querySelector('.servicios') ? 1 : 0,
-            document.querySelector('.video-section') ? 1 : 0,
-            document.querySelector('#contacto') ? 1 : 0,
-            document.querySelector('.checklist') ? 1 : 0,
-            document.querySelector('.reseñas') ? 1 : 0
-        ];
-        var total = pasos.length;
-        var completados = pasos.reduce(function(a, b) { return a + b; }, 0);
-        var porcentaje = Math.round((completados / total) * 100);
-        document.getElementById('progresoBarra').style.width = porcentaje + '%';
-        const msgs = translations[currentLang];
-        document.getElementById('progresoTexto').textContent = porcentaje + '% ' + (msgs['% completado'] || 'completado');
-    }
-
-    window.addEventListener('scroll', actualizarProgreso);
-    document.addEventListener('DOMContentLoaded', actualizarProgreso);
-
-    document.getElementById('cerrarProgreso').addEventListener('click', function() {
-        this.closest('.conversion-progress').style.display = 'none';
-    });
-
-    // ===== LOGROS =====
-    const logros = {
-        explorador: { nombre: 'Explorador', icono: '🧭', descripcion: 'Visitaste 5 secciones', obtenido: false },
-        comunidad: { nombre: 'Comunidad', icono: '🏘️', descripcion: 'Viste la sección de clientes', obtenido: false },
-        contacto: { nombre: 'Conectado', icono: '📞', descripcion: 'Llegaste al formulario de contacto', obtenido: false },
-        calculadora: { nombre: 'Ahorrador', icono: '💰', descripcion: 'Usaste la calculadora', obtenido: false },
-        checklist: { nombre: 'Evaluador', icono: '📋', descripcion: 'Evaluaste tu comunidad', obtenido: false }
-    };
-
-    function mostrarLogro(id) {
-        const logro = logros[id];
-        if (!logro || logro.obtenido) return;
-        logro.obtenido = true;
-        const panel = document.getElementById('logrosPanel');
-        const container = document.getElementById('insigniasContainer');
-        const msgs = translations[currentLang];
-        const nombreTrad = msgs[logro.nombre] || logro.nombre;
-        const descTrad = msgs[logro.descripcion] || logro.descripcion;
-        container.innerHTML += '<div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(26,122,74,0.04);">' +
-            '<span style="font-size:1.4rem;">' + logro.icono + '</span>' +
-            '<div>' +
-            '<div style="font-weight:600;font-size:0.85rem;color:var(--text-primary);">' + nombreTrad + '</div>' +
-            '<div style="font-size:0.7rem;color:var(--text-muted);">' + descTrad + '</div>' +
-            '</div>' +
-            '</div>';
-        panel.style.display = 'block';
-        const msg = currentLang === 'es' ? '🏆 Logro desbloqueado: ' + nombreTrad + '!' : '🏆 Achievement unlocked: ' + nombreTrad + '!';
-        showToast(msg);
-        setTimeout(function() {
-            panel.style.display = 'none';
-        }, 5000);
-    }
-
-    function verificarLogros() {
-        const secciones = document.querySelectorAll('section');
-        const vistas = Array.from(secciones).filter(function(s) {
-            const rect = s.getBoundingClientRect();
-            return rect.top < window.innerHeight && rect.bottom > 0;
-        });
-
-        if (vistas.length >= 5 && !logros.explorador.obtenido) {
-            mostrarLogro('explorador');
-        }
-        if (document.querySelector('.clientes') && !logros.comunidad.obtenido) {
-            mostrarLogro('comunidad');
-        }
-        if (document.querySelector('#contacto') && !logros.contacto.obtenido) {
-            mostrarLogro('contacto');
-        }
-        if (document.querySelector('.calculadora') && !logros.calculadora.obtenido) {
-            mostrarLogro('calculadora');
-        }
-        if (document.querySelector('.checklist') && !logros.checklist.obtenido) {
-            mostrarLogro('checklist');
-        }
-    }
-
-    window.addEventListener('scroll', verificarLogros);
-    document.getElementById('cerrarLogros').addEventListener('click', function() {
-        this.closest('#logrosPanel').style.display = 'none';
-    });
-
-    // ===== TRACKING =====
-    let scrollDepth = { 25: false, 50: false, 75: false, 100: false };
-    window.addEventListener('scroll', function() {
-        var pct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-        for (var key in scrollDepth) {
-            if (pct >= parseInt(key) && !scrollDepth[key]) {
-                scrollDepth[key] = true;
-            }
-        }
-    });
-
-    document.querySelectorAll('.btn-primary, .btn-whatsapp, .nav-phone, .btn-sistema, .share-btn').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            var text = this.textContent.trim();
-        });
-    });
+    console.log('✅ Asociados 2506 - Landing Page cargada correctamente');
 </script>
 
 </body>
-</html>      
+</html>
