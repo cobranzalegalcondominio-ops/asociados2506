@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <!-- QRCode.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
         /* ============================================================
                    RESET & BASE
@@ -47,6 +49,29 @@
             --shadow: 0 8px 40px rgba(26, 122, 74, 0.08);
             --shadow-hover: 0 16px 60px rgba(26, 122, 74, 0.12);
             --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* ===== TEXTO JUSTIFICADO ===== */
+        .text-justify {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .text-justify p {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .problema-card p,
+        .servicio-item p,
+        .mvv-card p,
+        .sobre-grid .texto p,
+        .testimonial p,
+        .reseña-item p,
+        .descripcion p,
+        .help-faq details p {
+            text-align: justify;
+            text-justify: inter-word;
         }
 
         body.dark-theme {
@@ -1132,6 +1157,8 @@
             opacity: 0.85;
             margin-bottom: 28px;
             max-width: 580px;
+            text-align: justify;
+            text-justify: inter-word;
         }
         .banner-slider .slide .slide-badge {
             display: inline-block;
@@ -1245,6 +1272,8 @@
         .problema-card p {
             color: var(--text-secondary);
             font-size: 0.95rem;
+            text-align: justify;
+            text-justify: inter-word;
         }
 
         .servicios {
@@ -1340,6 +1369,8 @@
         .servicio-item p {
             color: var(--text-secondary);
             font-size: 0.95rem;
+            text-align: justify;
+            text-justify: inter-word;
         }
         .servicio-item .badge-legal {
             display: inline-block;
@@ -1437,6 +1468,8 @@
             font-style: italic;
             color: var(--text-secondary);
             font-size: 1.05rem;
+            text-align: justify;
+            text-justify: inter-word;
         }
         .testimonial .autor {
             font-style: normal;
@@ -1512,6 +1545,8 @@
             color: var(--text-secondary);
             font-size: 0.95rem;
             line-height: 1.7;
+            text-align: justify;
+            text-justify: inter-word;
         }
         .mvv-card .valores-list {
             display: flex;
@@ -1546,6 +1581,8 @@
             font-size: 1.05rem;
             margin-bottom: 16px;
             line-height: 1.8;
+            text-align: justify;
+            text-justify: inter-word;
         }
         .sobre-grid .foto-equipo {
             border-radius: var(--radius-lg);
@@ -1711,6 +1748,8 @@
             color: var(--text-secondary);
             font-size: 0.95rem;
             line-height: 1.7;
+            text-align: justify;
+            text-justify: inter-word;
         }
         .accordion-modern .accordion-body .contenido .descripcion .social-links {
             margin-top: 14px;
@@ -1750,6 +1789,8 @@
         }
         .reseña-item p {
             color: var(--text-secondary);
+            text-align: justify;
+            text-justify: inter-word;
         }
 
         .checklist {
@@ -3329,19 +3370,65 @@ SCRIPTS
     });
 
     // ===== QR CODE =====
-    if (typeof QRCode !== 'undefined') {
-        new QRCode(document.getElementById("qrCode"), {
-            text: window.location.href,
-            width: 150,
-            height: 150,
-            colorDark: "#1A7A4A",
-            colorLight: "rgba(255,255,255,0.02)",
-            correctLevel: QRCode.CorrectLevel.H
-        });
+    // Función para generar QR con la URL actual
+    function generateQRCode() {
+        const qrContainer = document.getElementById('qrCode');
+        if (!qrContainer) return;
+        
+        // Limpiar contenedor
+        qrContainer.innerHTML = '';
+        
+        // Usar la URL actual de la página
+        const url = window.location.href;
+        
+        try {
+            // Verificar si QRCode está disponible
+            if (typeof QRCode !== 'undefined') {
+                new QRCode(qrContainer, {
+                    text: url,
+                    width: 150,
+                    height: 150,
+                    colorDark: "#1A7A4A",
+                    colorLight: "rgba(255,255,255,0.02)",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+                console.log('✅ QR Code generado correctamente para:', url);
+            } else {
+                // Fallback si QRCode no está cargado
+                qrContainer.innerHTML = `
+                    <div style="width:150px;height:150px;display:flex;align-items:center;justify-content:center;background:#f0f5f0;border-radius:8px;border:2px dashed #1A7A4A;">
+                        <span style="font-size:0.7rem;color:#1A7A4A;text-align:center;padding:10px;">
+                            📱<br>Escanea<br>compartir
+                        </span>
+                    </div>
+                `;
+                console.warn('⚠️ QRCode.js no cargado, usando fallback');
+            }
+        } catch (error) {
+            console.error('❌ Error generando QR:', error);
+            qrContainer.innerHTML = `
+                <div style="width:150px;height:150px;display:flex;align-items:center;justify-content:center;background:#f0f5f0;border-radius:8px;border:2px dashed #E74C3C;">
+                    <span style="font-size:0.7rem;color:#E74C3C;text-align:center;padding:10px;">
+                        ❌<br>Error<br>QR
+                    </span>
+                </div>
+            `;
+        }
     }
+
+    // Generar QR al cargar la página
+    document.addEventListener('DOMContentLoaded', function() {
+        // Esperar un momento para que la librería se cargue
+        setTimeout(generateQRCode, 500);
+    });
+
+    // Regenerar QR cuando cambie la URL (para SPA)
+    window.addEventListener('popstate', function() {
+        setTimeout(generateQRCode, 300);
+    });
 
     console.log('✅ Asociados 2506 - Landing Page cargada correctamente');
 </script>
 
 </body>
-</html>
+</html>    
