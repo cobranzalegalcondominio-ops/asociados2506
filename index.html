@@ -437,7 +437,7 @@
             margin-top: 2px;
         }
 
-        /* ===== MARCA DE AGUA ===== */
+        /* ===== MARCA DE AGUA (con ambas imágenes) ===== */
         .bg-watermark {
             position: fixed;
             inset: 0;
@@ -458,6 +458,7 @@
             filter: brightness(1.0) saturate(0.9);
             animation: watermarkFloat 35s ease-in-out infinite alternate;
             transform-origin: center;
+            /* Se hereda la clase .logo-claro / .logo-oscuro para controlar visibilidad */;
         }
         @keyframes watermarkFloat {
             0% {
@@ -476,8 +477,10 @@
         body.dark-theme .bg-watermark {
             opacity: 0.12;
         }
-        body.dark-theme .bg-watermark img {
-            filter: brightness(1.2) saturate(0.9);
+        /* En modo oscuro, la imagen oscura ya tiene el brillo adecuado; no necesitamos filter extra */
+        /* Si se desea, se puede dejar un ajuste sutil */
+        body.dark-theme .bg-watermark .logo-oscuro {
+            filter: brightness(1.0) saturate(1.0);
         }
 
         @media (max-width: 768px) {
@@ -498,7 +501,7 @@
         }
 
         /* ============================================================
-                   RESTO DE ESTILOS
+                   RESTO DE ESTILOS (todo igual que el original)
                    ============================================================ */
         body {
             font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -1583,7 +1586,7 @@
 
         .sobre-grid {
             display: grid;
-            grid-template-columns: 1fr 1.5fr;  /* más espacio para la foto */
+            grid-template-columns: 1fr 1.5fr;
             gap: 40px;
             align-items: start;
         }
@@ -1601,9 +1604,9 @@
             border: 2px solid rgba(164, 196, 63, 0.06);
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
             transition: all var(--transition);
-            padding: 10px; /* para darle respiro */
+            padding: 10px;
             background: rgba(164, 196, 63, 0.02);
-            align-self: start;  /* evita que se estire verticalmente */
+            align-self: start;
         }
         .sobre-grid .foto-equipo:hover {
             border-color: rgba(164, 196, 63, 0.12);
@@ -1614,7 +1617,7 @@
             width: 100%;
             height: auto;
             display: block;
-            max-width: 100%;  /* para que no se desborde */
+            max-width: 100%;
             border-radius: calc(var(--radius-lg) - 4px);
         }
 
@@ -1667,7 +1670,6 @@
         .accordion-modern .accordion-item.active .accordion-header::after {
             opacity: 1;
         }
-        /* MINIATURA (se mantiene) */
         .accordion-modern .accordion-header .foto-mini {
             width: 270px;
             height: 270px;
@@ -1733,7 +1735,6 @@
             transform: rotate(180deg);
             border-color: rgba(164, 196, 63, 0.08);
         }
-        /* Cuerpo del acordeón: sin foto grande, solo texto */
         .accordion-modern .accordion-body {
             max-height: 0;
             overflow: hidden;
@@ -1741,14 +1742,13 @@
             padding: 0 28px;
         }
         .accordion-modern .accordion-item.active .accordion-body {
-            max-height: 800px; /* suficiente para texto */
+            max-height: 800px;
             padding: 0 28px 24px 28px;
         }
         .accordion-modern .accordion-body .contenido {
-            /* eliminamos flex y alineación de foto */
             padding-top: 16px;
             border-top: 1px solid rgba(164, 196, 63, 0.06);
-            display: block;  /* el texto ocupa todo el ancho */
+            display: block;
         }
         .accordion-modern .accordion-body .contenido .descripcion p {
             color: var(--text-secondary);
@@ -1781,10 +1781,10 @@
             transform: translateY(-2px);
         }
 
-        /* ===== RESPONSIVE PARA ACORDEÓN SIN FOTOS GRANDES ===== */
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .sobre-grid {
-                grid-template-columns: 1fr; /* en tablet la foto abajo */
+                grid-template-columns: 1fr;
             }
             .sobre-grid .foto-equipo img {
                 width: 100%;
@@ -2207,12 +2207,6 @@
                 padding: 6px 14px;
                 font-size: 1rem;
             }
-            .bg-watermark {
-                opacity: 0.09;
-            }
-            .bg-watermark img {
-                width: 200vw;
-            }
         }
 
         @media (max-width: 768px) {
@@ -2324,12 +2318,6 @@
             .mapa-wrapper iframe {
                 height: 200px;
             }
-            .bg-watermark {
-                opacity: 0.08;
-            }
-            .bg-watermark img {
-                width: 200vw;
-            }
         }
 
         @media (max-width: 480px) {
@@ -2407,12 +2395,6 @@
                 height: 60px;
                 padding: 4px 8px;
             }
-            .bg-watermark {
-                opacity: 0.06;
-            }
-            .bg-watermark img {
-                width: 250vw;
-            }
             .reseñas-grid {
                 grid-template-columns: 1fr !important;
             }
@@ -2434,9 +2416,10 @@
     <div class="light-sparkle"></div>
     <div class="light-sparkle"></div>
 
-    <!-- ===== MARCA DE AGUA ===== -->
+    <!-- ===== MARCA DE AGUA (con ambas imágenes) ===== -->
     <div class="bg-watermark">
-        <img src="logo.png" alt="Asociados 2506" loading="lazy">
+        <img src="logo.webp" class="logo-claro" alt="Asociados 2506" loading="lazy">
+        <img src="logooscuro.webp" class="logo-oscuro" alt="Asociados 2506" loading="lazy">
     </div>
 
     <!-- ===== CONTENIDO PRINCIPAL ===== -->
@@ -2506,15 +2489,19 @@
         <nav class="navbar" role="navigation" aria-label="Navegación principal">
             <div class="container">
                 <div class="logo-container">
-                    <img src="logo.png" alt="Asociados 2506" class="logo-claro" loading="lazy">
-                    <img src="logooscuro.png" alt="Asociados 2506" class="logo-oscuro" loading="lazy">
+                    <img src="logo.webp" class="logo-claro" alt="Asociados 2506" loading="lazy" decoding="async" fetchpriority="high" style="height:120px; width:auto;">
+                    <img src="logooscuro.webp" class="logo-oscuro" alt="Asociados 2506" loading="lazy" decoding="async" style="height:120px; width:auto;">
                     <div class="logo-text-group">
                         <div class="logo-rif" data-translate="nav_rif">R.I.F. J-50343186-5</div>
                     </div>
                 </div>
                 <div class="nav-actions">
                     <a href="https://soft-ia.com/inicio/inicioxadmin/324989" class="btn-sistema" id="btnSistema" target="_blank">
-                        <i class="fas fa-cog"></i> <span data-translate="nav_sistema">Sistema</span>
+                        <i class="fas fa-cog"></i>
+                        <span style="display:flex; flex-direction:column; line-height:1.2; text-align:left;">
+                            <span data-translate="nav_sistema">Sistema</span>
+                            <small style="font-size:0.6rem; font-weight:400; opacity:0.8;" data-translate="nav_sistema_sub">Reportar pagos</small>
+                        </span>
                     </a>
                     <a href="tel:+584127207183" class="nav-phone">
                         <i class="fas fa-phone-alt"></i> <span data-translate="nav_phone">0412-7207183</span>
@@ -2711,14 +2698,13 @@
                             <!-- DINIA ROJAS -->
                             <div class="accordion-item" data-socia="dinia">
                                 <div class="accordion-header" onclick="toggleAccordion(this)">
-                                    <div class="foto-mini"><img src="dinia-rojas.webp" alt="Dinia Rojas - Socia Fundadora" loading="lazy"></div>
+                                    <div class="foto-mini"><img src="dinia-rojas.webp" alt="Dinia Rojas - Socia Fundadora" loading="lazy" decoding="async"></div>
                                     <div class="info"><h3 data-translate="dinia_name">Dinia Rojas</h3><div class="cargo" data-translate="dinia_cargo">Socia Fundadora</div></div>
                                     <span class="badge" data-translate="dinia_badge">Fundadora</span>
                                     <div class="icon-toggle"><i class="fas fa-chevron-down"></i></div>
                                 </div>
                                 <div class="accordion-body">
                                     <div class="contenido">
-                                        <!-- Foto grande eliminada -->
                                         <div class="descripcion">
                                             <p data-translate="dinia_desc">Dinia Rojas es cofundadora de Asociados 2506 con una trayectoria de más de 15 años en el sector de administración de condominios. Su enfoque está centrado en la transparencia, la comunicación efectiva y la construcción de relaciones de confianza con cada comunidad que gestiona. Su liderazgo y visión han sido fundamentales para posicionar a la empresa como un referente en el sector.</p>
                                             <div class="social-links">
@@ -2732,14 +2718,13 @@
                             <!-- IRIS GALLARDO -->
                             <div class="accordion-item" data-socia="iris">
                                 <div class="accordion-header" onclick="toggleAccordion(this)">
-                                    <div class="foto-mini"><img src="iris-gallardo.webp" alt="Iris Gallardo - Socia Fundadora" loading="lazy"></div>
+                                    <div class="foto-mini"><img src="iris-gallardo.webp" alt="Iris Gallardo - Socia Fundadora" loading="lazy" decoding="async"></div>
                                     <div class="info"><h3 data-translate="iris_name">Iris Gallardo</h3><div class="cargo" data-translate="iris_cargo">Socia Fundadora</div></div>
                                     <span class="badge" data-translate="iris_badge">Fundadora</span>
                                     <div class="icon-toggle"><i class="fas fa-chevron-down"></i></div>
                                 </div>
                                 <div class="accordion-body">
                                     <div class="contenido">
-                                        <!-- Foto grande eliminada -->
                                         <div class="descripcion">
                                             <p data-translate="iris_desc">Iris Gallardo es cofundadora de Asociados 2506 con amplia experiencia en atención al cliente y gestión de comunidades. Su pasión es crear entornos armónicos donde cada propietario se sienta escuchado y valorado. Su enfoque humano y cercano ha sido clave para el éxito de la empresa, construyendo relaciones duraderas con cada comunidad que administra.</p>
                                             <div class="social-links">
@@ -2751,7 +2736,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="foto-equipo"><img src="dinia-iris-equipo.webp" alt="Dinia Rojas e Iris Gallardo - Socias Fundadoras" loading="lazy"></div>
+                    <div class="foto-equipo"><img src="dinia-iris-equipo.webp" alt="Dinia Rojas e Iris Gallardo - Socias Fundadoras" loading="lazy" decoding="async"></div>
                 </div>
             </div>
         </section>
@@ -2859,8 +2844,8 @@
         <footer class="footer">
             <div class="container">
                 <div class="footer-logo">
-                    <img src="logo.png" alt="Asociados 2506" class="logo-claro" loading="lazy">
-                    <img src="logooscuro.png" alt="Asociados 2506" class="logo-oscuro" loading="lazy">
+                    <img src="logo.webp" class="logo-claro" alt="Asociados 2506" loading="lazy" decoding="async" style="height:120px; width:auto;">
+                    <img src="logooscuro.webp" class="logo-oscuro" alt="Asociados 2506" loading="lazy" decoding="async" style="height:120px; width:auto;">
                 </div>
                 <p><i class="fas fa-map-pin"></i> <a href="https://www.google.com/maps/place//@10.4796747,-66.8216573,17z/data=!4m6!1m5!3m4!2zMTDCsDI4JzQ2LjgiTiA2NsKwNDknMDguNyJX!8m2!3d10.4796747!4d-66.8190824?hl=es&entry=ttu&g_ep=EgoyMDI2MDYxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank"><span data-translate="footer_address">Av. Francisco Miranda, Centro Seguros La Paz - Piso 8 Torre Sur Ofc S82, Caracas.</span></a></p>
                 <p><i class="fas fa-envelope"></i> <a href="mailto:contacto@asociados2506.com.ve" style="color:var(--color-primary);">contacto@asociados2506.com.ve</a> · RIF J-50343186-5</p>
@@ -2879,6 +2864,7 @@
             es: {
                 'nav_rif': 'R.I.F. J-50343186-5',
                 'nav_sistema': 'Sistema',
+                'nav_sistema_sub': 'Reportar pagos',
                 'nav_phone': '0412-7207183',
                 'banner_btn1': 'Agendar cita',
                 'banner_btn2': 'Protección legal',
@@ -2996,6 +2982,7 @@
             en: {
                 'nav_rif': 'R.I.F. J-50343186-5',
                 'nav_sistema': 'System',
+                'nav_sistema_sub': 'Report payments',
                 'nav_phone': '0412-7207183',
                 'banner_btn1': 'Schedule appointment',
                 'banner_btn2': 'Legal protection',
@@ -3421,4 +3408,4 @@
     </script>
 
 </body>
-</html>
+</html>  
