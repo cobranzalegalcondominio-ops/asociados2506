@@ -11,9 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
-        /* ============================================================
-                   RESET & BASE
-                   ============================================================ */
+        /* ===== RESET & BASE (todo igual que antes) ===== */
         *,
         *::before,
         *::after {
@@ -414,7 +412,7 @@
             color: #F0F8F2 !important;
         }
 
-        /* ===== LOGOS CLARO/OSCURO ===== */
+        /* ===== LOGOS ===== */
         .logo-claro {
             display: block !important;
         }
@@ -428,7 +426,6 @@
             display: block !important;
         }
 
-        /* ===== RIF MÁS GRANDE Y GRUESO ===== */
         .logo-rif {
             color: rgba(10, 31, 18, 0.35);
             font-size: 1.2rem;
@@ -437,7 +434,7 @@
             margin-top: 2px;
         }
 
-        /* ===== MARCA DE AGUA (con ambas imágenes) ===== */
+        /* ===== MARCA DE AGUA ===== */
         .bg-watermark {
             position: fixed;
             inset: 0;
@@ -458,7 +455,6 @@
             filter: brightness(1.0) saturate(0.9);
             animation: watermarkFloat 35s ease-in-out infinite alternate;
             transform-origin: center;
-            /* Se hereda la clase .logo-claro / .logo-oscuro para controlar visibilidad */;
         }
         @keyframes watermarkFloat {
             0% {
@@ -477,10 +473,8 @@
         body.dark-theme .bg-watermark {
             opacity: 0.12;
         }
-        /* En modo oscuro, la imagen oscura ya tiene el brillo adecuado; no necesitamos filter extra */
-        /* Si se desea, se puede dejar un ajuste sutil */
-        body.dark-theme .bg-watermark .logo-oscuro {
-            filter: brightness(1.0) saturate(1.0);
+        body.dark-theme .bg-watermark img {
+            filter: brightness(1.2) saturate(0.9);
         }
 
         @media (max-width: 768px) {
@@ -500,9 +494,7 @@
             }
         }
 
-        /* ============================================================
-                   RESTO DE ESTILOS (todo igual que el original)
-                   ============================================================ */
+        /* ===== RESTO DE ESTILOS ===== */
         body {
             font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
             color: var(--text-primary);
@@ -594,15 +586,11 @@
         }
 
         .glow-text {
-            text-shadow:
-                0 0 25px rgba(164, 196, 63, 0.04),
-                0 0 50px rgba(232, 167, 53, 0.02);
+            text-shadow: 0 0 25px rgba(164, 196, 63, 0.04), 0 0 50px rgba(232, 167, 53, 0.02);
             transition: text-shadow var(--transition);
         }
         .glow-text:hover {
-            text-shadow:
-                0 0 30px rgba(164, 196, 63, 0.08),
-                0 0 60px rgba(232, 167, 53, 0.04);
+            text-shadow: 0 0 30px rgba(164, 196, 63, 0.08), 0 0 60px rgba(232, 167, 53, 0.04);
         }
 
         .container {
@@ -678,15 +666,9 @@
             color: #FFFFFF;
         }
         @keyframes whatsappPulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.3);
-            }
-            70% {
-                box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-            }
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.3); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
         .scroll-top {
@@ -1072,6 +1054,7 @@
             font-size: 1.1rem;
         }
 
+        /* ===== BANNER ===== */
         .banner-slider {
             height: 560px;
             position: relative;
@@ -1083,12 +1066,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background:
-                radial-gradient(
-                    circle at center,
-                    rgba(164, 196, 63, 0.08),
-                    transparent 60%
-                );
+            background: radial-gradient(circle at center, rgba(164, 196, 63, 0.08), transparent 60%);
             pointer-events: none;
             z-index: 0;
         }
@@ -1109,8 +1087,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background:
-                radial-gradient(ellipse at 30% 50%, rgba(164, 196, 63, 0.02) 0%, transparent 60%);
+            background: radial-gradient(ellipse at 30% 50%, rgba(164, 196, 63, 0.02) 0%, transparent 60%);
             z-index: -1;
         }
         .banner-slider .slide .slide-content {
@@ -1235,6 +1212,7 @@
             background: rgba(164, 196, 63, 0.20);
         }
 
+        /* ===== PROBLEMA ===== */
         .problema {
             border-bottom: 1px solid rgba(164, 196, 63, 0.04);
         }
@@ -1289,6 +1267,7 @@
             text-justify: inter-word;
         }
 
+        /* ===== SERVICIOS ===== */
         .servicios {
             border-bottom: 1px solid rgba(164, 196, 63, 0.04);
         }
@@ -1404,6 +1383,7 @@
             border-color: rgba(164, 196, 63, 0.08);
         }
 
+        /* ===== CLIENTES ===== */
         .clientes {
             border-bottom: 1px solid rgba(164, 196, 63, 0.04);
             text-align: center;
@@ -1425,19 +1405,15 @@
         .clientes-track {
             display: flex;
             gap: 24px;
-            animation: carouselScroll 28s linear infinite;
+            animation: carouselScroll 50s linear infinite;
             width: max-content;
         }
         .clientes-track:hover {
             animation-play-state: paused;
         }
         @keyframes carouselScroll {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
         .cliente-card {
             background: var(--color-white);
@@ -1452,7 +1428,7 @@
             align-items: center;
             gap: 12px;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
-            min-width: 190px;
+            min-width: 250px;
             justify-content: center;
         }
         .cliente-card:hover {
@@ -1504,7 +1480,7 @@
             box-shadow: var(--shadow);
         }
 
-        /* ===== SOBRE NOSOTROS: FOTO DEL EQUIPO MÁS GRANDE ===== */
+        /* ===== SOBRE NOSOTROS ===== */
         .sobre-nosotros {
             border-bottom: 1px solid rgba(164, 196, 63, 0.04);
         }
@@ -1621,9 +1597,7 @@
             border-radius: calc(var(--radius-lg) - 4px);
         }
 
-        /* ============================================================
-           ACORDEÓN SIN FOTOS GRANDES (solo miniatura + texto)
-           ============================================================ */
+        /* ===== ACORDEÓN ===== */
         .accordion-modern {
             display: flex;
             flex-direction: column;
@@ -1781,123 +1755,45 @@
             transform: translateY(-2px);
         }
 
-        /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
-            .sobre-grid {
-                grid-template-columns: 1fr;
-            }
-            .sobre-grid .foto-equipo img {
-                width: 100%;
-                max-width: 100%;
-            }
-            .accordion-modern .accordion-header .foto-mini {
-                width: 200px;
-                height: 200px;
-            }
+            .sobre-grid { grid-template-columns: 1fr; }
+            .sobre-grid .foto-equipo img { width: 100%; max-width: 100%; }
+            .accordion-modern .accordion-header .foto-mini { width: 200px; height: 200px; }
         }
-
         @media (max-width: 768px) {
-            .sobre-grid {
-                grid-template-columns: 1fr;
-            }
-            .sobre-grid .foto-equipo img {
-                width: 100%;
-                max-width: 100%;
-            }
-            .accordion-modern .accordion-header {
-                padding: 16px 20px;
-                gap: 14px;
-                flex-wrap: wrap;
-            }
-            .accordion-modern .accordion-header .foto-mini {
-                width: 160px;
-                height: 160px;
-            }
-            .accordion-modern .accordion-header .info h3 {
-                font-size: 1rem;
-            }
-            .accordion-modern .accordion-header .badge {
-                display: none;
-            }
-            .accordion-modern .accordion-body {
-                padding: 0 20px;
-            }
-            .accordion-modern .accordion-item.active .accordion-body {
-                padding: 0 20px 20px 20px;
-                max-height: 600px;
-            }
-            .accordion-modern .accordion-body .contenido {
-                padding-top: 12px;
-            }
-            .accordion-modern .accordion-body .contenido .descripcion .social-links {
-                justify-content: center;
-            }
+            .sobre-grid { grid-template-columns: 1fr; }
+            .sobre-grid .foto-equipo img { width: 100%; max-width: 100%; }
+            .accordion-modern .accordion-header { padding: 16px 20px; gap: 14px; flex-wrap: wrap; }
+            .accordion-modern .accordion-header .foto-mini { width: 160px; height: 160px; }
+            .accordion-modern .accordion-header .info h3 { font-size: 1rem; }
+            .accordion-modern .accordion-header .badge { display: none; }
+            .accordion-modern .accordion-body { padding: 0 20px; }
+            .accordion-modern .accordion-item.active .accordion-body { padding: 0 20px 20px 20px; max-height: 600px; }
+            .accordion-modern .accordion-body .contenido { padding-top: 12px; }
+            .accordion-modern .accordion-body .contenido .descripcion .social-links { justify-content: center; }
         }
-
         @media (max-width: 480px) {
-            .accordion-modern .accordion-header .foto-mini {
-                width: 120px;
-                height: 120px;
-            }
+            .accordion-modern .accordion-header .foto-mini { width: 120px; height: 120px; }
         }
 
-        /* ============================================================
-                   RESTO DE ESTILOS (reseñas, video, mapa, cta, footer, etc.)
-                   ============================================================ */
-        .reseñas {
-            border-bottom: 1px solid rgba(164, 196, 63, 0.04);
-        }
-        .reseñas h3 {
-            color: var(--text-primary);
-        }
-        .reseña-item {
-            transition: all 0.3s ease;
-        }
-        .reseña-item:hover {
-            transform: translateY(-4px);
-        }
-        .reseña-item p {
-            color: var(--text-secondary);
-            text-align: justify;
-            text-justify: inter-word;
-        }
+        /* ===== RESEÑAS ===== */
+        .reseñas { border-bottom: 1px solid rgba(164, 196, 63, 0.04); }
+        .reseñas h3 { color: var(--text-primary); }
+        .reseña-item { transition: all 0.3s ease; }
+        .reseña-item:hover { transform: translateY(-4px); }
+        .reseña-item p { color: var(--text-secondary); text-align: justify; text-justify: inter-word; }
 
-        .checklist {
-            border-bottom: 1px solid rgba(164, 196, 63, 0.04);
-        }
-        .checklist h3 {
-            color: var(--text-primary);
-        }
-        .checklist .sub {
-            color: var(--text-muted);
-        }
-        .check-item {
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(164, 196, 63, 0.04);
-        }
-        .check-item:last-child {
-            border-bottom: none;
-        }
-        .check-item label {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            cursor: pointer;
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            transition: color 0.3s;
-        }
-        .check-item label:hover {
-            color: var(--text-primary);
-        }
-        .check-item input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            accent-color: var(--color-primary);
-            cursor: pointer;
-            border-radius: 4px;
-        }
+        /* ===== CHECKLIST ===== */
+        .checklist { border-bottom: 1px solid rgba(164, 196, 63, 0.04); }
+        .checklist h3 { color: var(--text-primary); }
+        .checklist .sub { color: var(--text-muted); }
+        .check-item { padding: 10px 0; border-bottom: 1px solid rgba(164, 196, 63, 0.04); }
+        .check-item:last-child { border-bottom: none; }
+        .check-item label { display: flex; align-items: center; gap: 14px; cursor: pointer; font-size: 0.95rem; color: var(--text-secondary); transition: color 0.3s; }
+        .check-item label:hover { color: var(--text-primary); }
+        .check-item input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--color-primary); cursor: pointer; border-radius: 4px; }
 
+        /* ===== VIDEO (modificado) ===== */
         .video-section {
             border-top: 1px solid rgba(164, 196, 63, 0.04);
             border-bottom: 1px solid rgba(164, 196, 63, 0.04);
@@ -1921,17 +1817,21 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
             border: 1px solid rgba(164, 196, 63, 0.06);
             transition: all var(--transition);
+            background: #000;
         }
         .video-wrapper:hover {
             border-color: rgba(164, 196, 63, 0.10);
             box-shadow: 0 25px 80px rgba(0, 0, 0, 0.06);
             transform: scale(1.002);
         }
-        .video-wrapper iframe {
+        .video-wrapper video {
             width: 100%;
             display: block;
             aspect-ratio: 16 / 9;
+            object-fit: contain;
+            background: #000;
         }
+
         .video-tags {
             display: flex;
             justify-content: center;
@@ -1950,454 +1850,121 @@
             color: var(--color-primary);
         }
 
-        .mapa-section {
-            border-bottom: 1px solid rgba(164, 196, 63, 0.04);
-        }
-        .mapa-section h3 {
-            color: var(--text-primary);
-        }
-        .mapa-section div {
-            color: var(--text-muted);
-        }
-        .mapa-wrapper {
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            border: 1px solid rgba(164, 196, 63, 0.06);
-            transition: all 0.3s ease;
-        }
-        .mapa-wrapper:hover {
-            border-color: rgba(164, 196, 63, 0.10);
-            box-shadow: var(--shadow-hover);
-        }
-        .mapa-wrapper iframe {
-            display: block;
-            width: 100%;
-            height: 300px;
-            border: 0;
-        }
+        /* ===== MAPA ===== */
+        .mapa-section { border-bottom: 1px solid rgba(164, 196, 63, 0.04); }
+        .mapa-section h3 { color: var(--text-primary); }
+        .mapa-section div { color: var(--text-muted); }
+        .mapa-wrapper { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(164, 196, 63, 0.06); transition: all 0.3s ease; }
+        .mapa-wrapper:hover { border-color: rgba(164, 196, 63, 0.10); box-shadow: var(--shadow-hover); }
+        .mapa-wrapper iframe { display: block; width: 100%; height: 300px; border: 0; }
 
-        .qr-section {
-            border-bottom: 1px solid rgba(164, 196, 63, 0.04);
-            text-align: center;
-        }
-        .qr-section h3 {
-            color: var(--text-primary);
-        }
-        #qrCode {
-            width: 150px;
-            height: 150px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            margin: 0 auto;
-        }
-        #qrCode canvas {
-            width: 100% !important;
-            height: 100% !important;
-        }
+        /* ===== QR ===== */
+        .qr-section { border-bottom: 1px solid rgba(164, 196, 63, 0.04); text-align: center; }
+        .qr-section h3 { color: var(--text-primary); }
+        #qrCode { width: 150px; height: 150px; border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden; margin: 0 auto; }
+        #qrCode canvas { width: 100% !important; height: 100% !important; }
 
-        #contacto {
-            scroll-margin-top: 90px;
-        }
-
-        .cta-final {
-            background: rgba(164, 196, 63, 0.02);
-            padding: 70px 0 60px;
-            text-align: center;
-        }
-        .cta-final h2 {
-            font-size: 2.6rem;
-            margin-bottom: 6px;
-            color: var(--text-primary);
-        }
-        .cta-final h2 span {
-            color: var(--color-primary);
-        }
-        .cta-final .sub {
-            opacity: 0.6;
-            margin-bottom: 36px;
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-        }
-        .cta-box {
-            background: var(--color-white);
-            border: 1px solid rgba(164, 196, 63, 0.06);
-            max-width: 520px;
-            margin: 0 auto;
-            padding: 36px 32px;
-            border-radius: var(--radius-lg);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.02);
-        }
-        .cta-box form {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-        .cta-box input,
-        .cta-box select {
-            padding: 14px 18px;
-            border-radius: var(--radius);
-            border: 1px solid rgba(164, 196, 63, 0.06);
-            background: var(--color-off-white);
-            color: var(--text-primary);
-            font-size: 0.95rem;
-            transition: all var(--transition);
-            outline: none;
-        }
-        .cta-box input:focus,
-        .cta-box select:focus {
-            border-color: var(--color-primary);
-            box-shadow: 0 0 0 3px rgba(164, 196, 63, 0.06);
-        }
-        .cta-box input::placeholder {
-            color: var(--text-muted);
-        }
-        .cta-box select option {
-            background: var(--color-white);
-        }
-        .btn-whatsapp {
-            background: linear-gradient(135deg, #25D366, #1DAE5A);
-            color: #FFFFFF !important;
-            padding: 16px;
-            border-radius: 60px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.05rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: all var(--transition);
-            cursor: pointer;
-            border: none;
-            width: 100%;
-            box-shadow: 0 8px 32px rgba(37, 211, 102, 0.20);
-        }
-        .btn-whatsapp:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 12px 48px rgba(37, 211, 102, 0.30);
-            background: linear-gradient(135deg, #1DAE5A, #159A4A);
-            color: #FFFFFF !important;
-        }
-        .cta-phones {
-            margin-top: 20px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-        .cta-phones strong {
-            color: var(--text-primary);
-        }
-        .cta-phones i {
-            color: var(--color-primary);
-        }
+        /* ===== CTA ===== */
+        #contacto { scroll-margin-top: 90px; }
+        .cta-final { background: rgba(164, 196, 63, 0.02); padding: 70px 0 60px; text-align: center; }
+        .cta-final h2 { font-size: 2.6rem; margin-bottom: 6px; color: var(--text-primary); }
+        .cta-final h2 span { color: var(--color-primary); }
+        .cta-final .sub { opacity: 0.6; margin-bottom: 36px; font-size: 1.1rem; color: var(--text-secondary); }
+        .cta-box { background: var(--color-white); border: 1px solid rgba(164, 196, 63, 0.06); max-width: 520px; margin: 0 auto; padding: 36px 32px; border-radius: var(--radius-lg); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.02); }
+        .cta-box form { display: flex; flex-direction: column; gap: 14px; }
+        .cta-box input, .cta-box select { padding: 14px 18px; border-radius: var(--radius); border: 1px solid rgba(164, 196, 63, 0.06); background: var(--color-off-white); color: var(--text-primary); font-size: 0.95rem; transition: all var(--transition); outline: none; }
+        .cta-box input:focus, .cta-box select:focus { border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(164, 196, 63, 0.06); }
+        .cta-box input::placeholder { color: var(--text-muted); }
+        .cta-box select option { background: var(--color-white); }
+        .btn-whatsapp { background: linear-gradient(135deg, #25D366, #1DAE5A); color: #FFFFFF !important; padding: 16px; border-radius: 60px; text-decoration: none; font-weight: 700; font-size: 1.05rem; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all var(--transition); cursor: pointer; border: none; width: 100%; box-shadow: 0 8px 32px rgba(37, 211, 102, 0.20); }
+        .btn-whatsapp:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 12px 48px rgba(37, 211, 102, 0.30); background: linear-gradient(135deg, #1DAE5A, #159A4A); color: #FFFFFF !important; }
+        .cta-phones { margin-top: 20px; font-size: 0.85rem; color: var(--text-muted); }
+        .cta-phones strong { color: var(--text-primary); }
+        .cta-phones i { color: var(--color-primary); }
 
         /* ===== FOOTER ===== */
-        .footer {
-            background: var(--color-white);
-            border-top: 1px solid rgba(164, 196, 63, 0.06);
-            color: var(--text-muted);
-            padding: 32px 0 24px;
-            text-align: center;
-            transition: background 0.4s ease;
-        }
-        .footer .footer-logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            margin-bottom: 12px;
-        }
-        .footer .footer-logo img {
-            height: 120px;
-            width: auto;
-            border-radius: 10px;
-            padding: 6px 14px;
-            border: 1px solid rgba(164, 196, 63, 0.04);
-            box-shadow: 0 0 20px rgba(164, 196, 63, 0.02);
-            transition: all var(--transition);
-        }
-        .footer .footer-logo img:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 30px rgba(164, 196, 63, 0.04);
-            border-color: rgba(164, 196, 63, 0.08);
-        }
-        .footer p {
-            font-size: 0.85rem;
-            margin-top: 6px;
-            color: var(--text-secondary);
-        }
-        .footer i {
-            color: var(--color-primary);
-        }
-        .footer a {
-            color: var(--color-primary);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .footer a:hover {
-            color: var(--color-primary-light);
-        }
-        .footer-copy {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            margin-top: 10px;
-        }
-        .footer-credit {
-            font-size: 0.7rem;
-            color: var(--text-secondary);
-            opacity: 0.8;
-            margin-top: 4px;
-        }
+        .footer { background: var(--color-white); border-top: 1px solid rgba(164, 196, 63, 0.06); color: var(--text-muted); padding: 32px 0 24px; text-align: center; transition: background 0.4s ease; }
+        .footer .footer-logo { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 12px; }
+        .footer .footer-logo img { height: 120px; width: auto; border-radius: 10px; padding: 6px 14px; border: 1px solid rgba(164, 196, 63, 0.04); box-shadow: 0 0 20px rgba(164, 196, 63, 0.02); transition: all var(--transition); }
+        .footer .footer-logo img:hover { transform: scale(1.03); box-shadow: 0 0 30px rgba(164, 196, 63, 0.04); border-color: rgba(164, 196, 63, 0.08); }
+        .footer p { font-size: 0.85rem; margin-top: 6px; color: var(--text-secondary); }
+        .footer i { color: var(--color-primary); }
+        .footer a { color: var(--color-primary); text-decoration: none; transition: color 0.3s; }
+        .footer a:hover { color: var(--color-primary-light); }
+        .footer-copy { font-size: 0.75rem; color: var(--text-secondary); margin-top: 10px; }
+        .footer-credit { font-size: 0.7rem; color: var(--text-secondary); opacity: 0.8; margin-top: 4px; }
 
         /* ===== RESPONSIVE GENERAL ===== */
         @media (max-width: 1024px) {
-            .banner-slider {
-                height: 480px;
-            }
-            .banner-slider .slide .slide-content h1 {
-                font-size: 2.8rem;
-            }
-            .problema-grid,
-            .servicios-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            .mvv-container {
-                grid-template-columns: 1fr 1fr;
-            }
-            .sobre-grid {
-                grid-template-columns: 1fr;
-            }
-            .sobre-grid .foto-equipo {
-                order: -1;
-            }
-            .logo-container img {
-                height: 100px;
-                padding: 4px 10px;
-            }
-            .logo-rif {
-                font-size: 1rem;
-            }
-            .footer .footer-logo img {
-                height: 90px;
-            }
-            .btn-sistema {
-                font-size: 1rem;
-                padding: 12px 24px;
-            }
-            .btn-sistema i {
-                font-size: 1.2rem;
-            }
-            .nav-phone {
-                font-size: 0.9rem;
-                padding: 8px 18px;
-            }
-            .nav-phone i {
-                font-size: 1rem;
-            }
-            .theme-toggle {
-                padding: 10px 18px;
-                font-size: 1.2rem;
-            }
-            .theme-toggle i {
-                font-size: 1.2rem;
-            }
-            .idioma-btn {
-                padding: 6px 14px;
-                font-size: 1rem;
-            }
+            .banner-slider { height: 480px; }
+            .banner-slider .slide .slide-content h1 { font-size: 2.8rem; }
+            .problema-grid, .servicios-grid { grid-template-columns: 1fr 1fr; }
+            .mvv-container { grid-template-columns: 1fr 1fr; }
+            .sobre-grid { grid-template-columns: 1fr; }
+            .sobre-grid .foto-equipo { order: -1; }
+            .logo-container img { height: 100px; padding: 4px 10px; }
+            .logo-rif { font-size: 1rem; }
+            .footer .footer-logo img { height: 90px; }
+            .btn-sistema { font-size: 1rem; padding: 12px 24px; }
+            .btn-sistema i { font-size: 1.2rem; }
+            .nav-phone { font-size: 0.9rem; padding: 8px 18px; }
+            .nav-phone i { font-size: 1rem; }
+            .theme-toggle { padding: 10px 18px; font-size: 1.2rem; }
+            .theme-toggle i { font-size: 1.2rem; }
+            .idioma-btn { padding: 6px 14px; font-size: 1rem; }
         }
-
         @media (max-width: 768px) {
-            .banner-slider {
-                height: 420px;
-            }
-            .banner-slider .slide .slide-content h1 {
-                font-size: 2.2rem;
-            }
-            .banner-slider .slide .slide-content p {
-                font-size: 1rem;
-            }
-            .section-padding {
-                padding: 56px 0;
-            }
-            .section-padding-sm {
-                padding: 40px 0;
-            }
-            .problema-grid,
-            .servicios-grid {
-                grid-template-columns: 1fr;
-            }
-            .mvv-container {
-                grid-template-columns: 1fr;
-            }
-            .navbar .container {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 6px;
-                padding: 0 12px;
-            }
-            .logo-container img {
-                height: 80px;
-                padding: 4px 8px;
-            }
-            .logo-rif {
-                font-size: 0.85rem;
-            }
-            .btn-sistema {
-                font-size: 0.85rem;
-                padding: 10px 20px;
-                gap: 8px;
-            }
-            .btn-sistema i {
-                font-size: 1rem;
-            }
-            .nav-phone {
-                font-size: 0.7rem;
-                padding: 6px 14px;
-                gap: 6px;
-            }
-            .nav-phone i {
-                font-size: 0.8rem;
-            }
-            .theme-toggle {
-                padding: 8px 14px;
-                font-size: 1rem;
-            }
-            .theme-toggle i {
-                font-size: 1rem;
-            }
-            .idioma-btn {
-                padding: 4px 12px;
-                font-size: 0.85rem;
-            }
-            .cta-box {
-                padding: 28px 20px;
-            }
-            .whatsapp-float {
-                width: 54px;
-                height: 54px;
-                font-size: 2rem;
-                bottom: 20px;
-                right: 20px;
-            }
-            .scroll-top {
-                bottom: 80px;
-                right: 20px;
-                width: 42px;
-                height: 42px;
-                font-size: 1rem;
-            }
-            .help-float {
-                bottom: 135px;
-                right: 20px;
-                width: 46px;
-                height: 46px;
-                font-size: 1.3rem;
-            }
-            .testimonial {
-                padding: 20px 24px;
-            }
-            .video-tags {
-                gap: 14px;
-                flex-direction: column;
-                align-items: center;
-            }
-            .footer .footer-logo img {
-                height: 70px;
-                padding: 4px 10px;
-            }
-            .toast {
-                bottom: 180px;
-                padding: 14px 20px;
-                font-size: 0.9rem;
-                max-width: 90%;
-            }
-            .mapa-wrapper iframe {
-                height: 200px;
-            }
+            .banner-slider { height: 420px; }
+            .banner-slider .slide .slide-content h1 { font-size: 2.2rem; }
+            .banner-slider .slide .slide-content p { font-size: 1rem; }
+            .section-padding { padding: 56px 0; }
+            .section-padding-sm { padding: 40px 0; }
+            .problema-grid, .servicios-grid { grid-template-columns: 1fr; }
+            .mvv-container { grid-template-columns: 1fr; }
+            .navbar .container { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 6px; padding: 0 12px; }
+            .logo-container img { height: 80px; padding: 4px 8px; }
+            .logo-rif { font-size: 0.85rem; }
+            .btn-sistema { font-size: 0.85rem; padding: 10px 20px; gap: 8px; }
+            .btn-sistema i { font-size: 1rem; }
+            .nav-phone { font-size: 0.7rem; padding: 6px 14px; gap: 6px; }
+            .nav-phone i { font-size: 0.8rem; }
+            .theme-toggle { padding: 8px 14px; font-size: 1rem; }
+            .theme-toggle i { font-size: 1rem; }
+            .idioma-btn { padding: 4px 12px; font-size: 0.85rem; }
+            .cta-box { padding: 28px 20px; }
+            .whatsapp-float { width: 54px; height: 54px; font-size: 2rem; bottom: 20px; right: 20px; }
+            .scroll-top { bottom: 80px; right: 20px; width: 42px; height: 42px; font-size: 1rem; }
+            .help-float { bottom: 135px; right: 20px; width: 46px; height: 46px; font-size: 1.3rem; }
+            .testimonial { padding: 20px 24px; }
+            .video-tags { gap: 14px; flex-direction: column; align-items: center; }
+            .footer .footer-logo img { height: 70px; padding: 4px 10px; }
+            .toast { bottom: 180px; padding: 14px 20px; font-size: 0.9rem; max-width: 90%; }
+            .mapa-wrapper iframe { height: 200px; }
+            .clientes-track { animation-duration: 60s; }
+            .cliente-card { min-width: 200px; padding: 12px 16px; font-size: 0.8rem; }
         }
-
         @media (max-width: 480px) {
-            .banner-slider {
-                height: 380px;
-            }
-            .banner-slider .slide .slide-content h1 {
-                font-size: 1.7rem;
-            }
-            .banner-slider .slide .slide-content p {
-                font-size: 0.9rem;
-            }
-            .btn-wrapper .banner-btn {
-                padding: 14px 28px;
-                font-size: 0.95rem;
-            }
-            .btn-primary {
-                padding: 14px 28px;
-                font-size: 0.95rem;
-            }
-            .logo-container img {
-                height: 60px;
-                padding: 4px 6px;
-            }
-            .logo-rif {
-                font-size: 0.7rem;
-            }
-            .btn-sistema {
-                font-size: 0.65rem;
-                padding: 8px 14px;
-                gap: 6px;
-            }
-            .btn-sistema i {
-                font-size: 0.8rem;
-            }
-            .nav-phone {
-                font-size: 0.55rem;
-                padding: 4px 10px;
-                gap: 4px;
-            }
-            .nav-phone i {
-                font-size: 0.65rem;
-            }
-            .theme-toggle {
-                padding: 6px 12px;
-                font-size: 0.7rem;
-            }
-            .theme-toggle i {
-                font-size: 0.7rem;
-            }
-            .idioma-btn {
-                padding: 3px 8px;
-                font-size: 0.6rem;
-            }
-            .clientes-track {
-                gap: 16px;
-                animation-duration: 20s;
-            }
-            .cliente-card {
-                min-width: 140px;
-                padding: 12px 16px;
-                font-size: 0.8rem;
-            }
-            .cta-final h2 {
-                font-size: 1.8rem;
-            }
-            .help-content {
-                padding: 20px;
-            }
-            .help-option {
-                padding: 12px 14px;
-                font-size: 0.9rem;
-            }
-            .footer .footer-logo img {
-                height: 60px;
-                padding: 4px 8px;
-            }
-            .reseñas-grid {
-                grid-template-columns: 1fr !important;
-            }
+            .banner-slider { height: 380px; }
+            .banner-slider .slide .slide-content h1 { font-size: 1.7rem; }
+            .banner-slider .slide .slide-content p { font-size: 0.9rem; }
+            .btn-wrapper .banner-btn { padding: 14px 28px; font-size: 0.95rem; }
+            .btn-primary { padding: 14px 28px; font-size: 0.95rem; }
+            .logo-container img { height: 60px; padding: 4px 6px; }
+            .logo-rif { font-size: 0.7rem; }
+            .btn-sistema { font-size: 0.65rem; padding: 8px 14px; gap: 6px; }
+            .btn-sistema i { font-size: 0.8rem; }
+            .nav-phone { font-size: 0.55rem; padding: 4px 10px; gap: 4px; }
+            .nav-phone i { font-size: 0.65rem; }
+            .theme-toggle { padding: 6px 12px; font-size: 0.7rem; }
+            .theme-toggle i { font-size: 0.7rem; }
+            .idioma-btn { padding: 3px 8px; font-size: 0.6rem; }
+            .clientes-track { gap: 16px; animation-duration: 70s; }
+            .cliente-card { min-width: 170px; padding: 10px 12px; font-size: 0.7rem; }
+            .cta-final h2 { font-size: 1.8rem; }
+            .help-content { padding: 20px; }
+            .help-option { padding: 12px 14px; font-size: 0.9rem; }
+            .footer .footer-logo img { height: 60px; padding: 4px 8px; }
+            .reseñas-grid { grid-template-columns: 1fr !important; }
         }
     </style>
 </head>
@@ -2416,7 +1983,7 @@
     <div class="light-sparkle"></div>
     <div class="light-sparkle"></div>
 
-    <!-- ===== MARCA DE AGUA (con ambas imágenes) ===== -->
+    <!-- ===== MARCA DE AGUA ===== -->
     <div class="bg-watermark">
         <img src="logo.webp" class="logo-claro" alt="Asociados 2506" loading="lazy">
         <img src="logooscuro.webp" class="logo-oscuro" alt="Asociados 2506" loading="lazy">
@@ -2426,7 +1993,7 @@
     <div class="main-content" id="main-content">
 
         <!-- ===== WHATSAPP FLOAT ===== -->
-        <a href="https://wa.me/584127207183?text=Hola%20Asociados%202506%2C%20vengo%20de%20la%20web%20y%20quiero%20una%20asesor%C3%ADa%20para%20mi%20condominio." class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+        <a href="https://wa.me/584128659033?text=Hola%20Asociados%202506%2C%20vengo%20de%20la%20web%20y%20quiero%20una%20asesor%C3%ADa%20para%20mi%20condominio." class="whatsapp-float" target="_blank" aria-label="WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
 
@@ -2503,8 +2070,8 @@
                             <small style="font-size:0.6rem; font-weight:400; opacity:0.8;" data-translate="nav_sistema_sub">Reportar pagos</small>
                         </span>
                     </a>
-                    <a href="tel:+584127207183" class="nav-phone">
-                        <i class="fas fa-phone-alt"></i> <span data-translate="nav_phone">0412-7207183</span>
+                    <a href="tel:+584128659033" class="nav-phone">
+                        <i class="fas fa-phone-alt"></i> <span data-translate="nav_phone">04128659033</span>
                     </a>
                     <div class="idioma-selector">
                         <button class="idioma-btn active" data-lang="es">ES</button>
@@ -2629,6 +2196,9 @@
                 <p class="sub" data-translate="client_sub">Más de 8 edificios en Caracas respaldan nuestra gestión.</p>
                 <div class="clientes-carousel">
                     <div class="clientes-track">
+                        <!-- K y L repetidas 3 veces -->
+                        <span class="cliente-card"><i class="fas fa-building"></i> El Encantado Humboldt Torre K</span>
+                        <span class="cliente-card"><i class="fas fa-building"></i> El Encantado Humboldt Torre L</span>
                         <span class="cliente-card"><i class="fas fa-building"></i> Sabas Nieves Altamira</span>
                         <span class="cliente-card"><i class="fas fa-building"></i> El Encantado Humboldt Torre B</span>
                         <span class="cliente-card"><i class="fas fa-building"></i> Castellana Plaza Altamira</span>
@@ -2636,9 +2206,10 @@
                         <span class="cliente-card"><i class="fas fa-building"></i> Los Peñascales San Román</span>
                         <span class="cliente-card"><i class="fas fa-building"></i> El Encantado Humboldt Torre C</span>
                         <span class="cliente-card"><i class="fas fa-building"></i> Rocalta Valle Arriba</span>
-                        <span class="cliente-card"><i class="fas fa-building"></i> Tiniquijama Chuao</span>
+                        <span class="cliente-card"><i class="fas fa-building"></i> Res. Tiniquijima El Cafetal</span>
                         <span class="cliente-card"><i class="fas fa-building"></i> Pórtico del Avila Torre C</span>
                         <span class="cliente-card"><i class="fas fa-building"></i> Pórtico del Avila Torre D</span>
+                        <!-- repetición final -->
                         <span class="cliente-card"><i class="fas fa-building"></i> El Encantado Humboldt Torre K</span>
                         <span class="cliente-card"><i class="fas fa-building"></i> El Encantado Humboldt Torre L</span>
                     </div>
@@ -2706,7 +2277,7 @@
                                 <div class="accordion-body">
                                     <div class="contenido">
                                         <div class="descripcion">
-                                            <p data-translate="dinia_desc">Dinia Rojas es cofundadora de Asociados 2506 con una trayectoria de más de 15 años en el sector de administración de condominios. Su enfoque está centrado en la transparencia, la comunicación efectiva y la construcción de relaciones de confianza con cada comunidad que gestiona. Su liderazgo y visión han sido fundamentales para posicionar a la empresa como un referente en el sector.</p>
+                                            <p data-translate="dinia_desc">Dinia Rojas es cofundadora de Asociados 2506 con una trayectoria de más de 7 años en el sector de administración de condominios. Su enfoque está centrado en la transparencia, la comunicación efectiva y la construcción de relaciones de confianza con cada comunidad que gestiona. Su liderazgo y visión han sido fundamentales para posicionar a la empresa como un referente en el sector.</p>
                                             <div class="social-links">
                                                 <a href="https://www.instagram.com/asociados2506/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
                                             </div>
@@ -2782,7 +2353,10 @@
                 <h2 class="glow-text" data-translate="video_title">🎥 Conoce a nuestras <span style="color:var(--color-primary);">Fundadoras</span></h2>
                 <p class="sub" data-translate="video_sub">Descubre quiénes están detrás de la gestión de tu condominio</p>
                 <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1&autoplay=0" title="Video Socias Fundadoras" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <video controls preload="metadata" poster="video-poster.jpg" style="width:100%; height:auto; display:block; border-radius:var(--radius-lg);">
+                        <source src="video_asociados2506.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de video.
+                    </video>
                 </div>
                 <div class="video-tags">
                     <span><i class="fas fa-check-circle"></i> <span data-translate="video_tag1">Conoce a nuestro equipo</span></span>
@@ -2799,7 +2373,7 @@
                 <div class="mapa-wrapper" style="border-radius:var(--radius-lg);overflow:hidden;border:1px solid rgba(164, 196, 63, 0.04);">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3922.123456789!2d-66.8190824!3d10.4796747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c2a5a123456789%3A0x123456789abcdef!2sCentro%20Seguros%20La%20Paz!5e0!3m2!1ses!2sve!4v1234567890" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación de Asociados 2506 en Centro Seguros La Paz, Caracas"></iframe>
                 </div>
-                <div style="text-align:center;margin-top:12px;color:var(--text-muted);font-size:0.85rem;"><i class="fas fa-map-pin"></i> <span data-translate="map_address">Av. Francisco Miranda, Centro Seguros La Paz - Piso 8 Torre Sur Ofc S82, Caracas</span></div>
+                <div style="text-align:center;margin-top:12px;color:var(--text-muted);font-size:0.85rem;"><i class="fas fa-map-pin"></i> <span data-translate="map_address">Av. Francisco Miranda, Centro Seguros La Paz - Piso 8 Torre Oeste, Oficina N81E</span></div>
             </div>
         </section>
 
@@ -2834,7 +2408,7 @@
                         </button>
                     </form>
                     <div class="cta-phones">
-                        <i class="fas fa-phone"></i> <span data-translate="cta_phones">Llámanos: <strong>0412-7207183</strong> · <strong>0424-2886513</strong></span>
+                        <i class="fas fa-phone"></i> <span data-translate="cta_phones">Llámanos: <strong>04128659033</strong></span>
                     </div>
                 </div>
             </div>
@@ -2847,7 +2421,7 @@
                     <img src="logo.webp" class="logo-claro" alt="Asociados 2506" loading="lazy" decoding="async" style="height:120px; width:auto;">
                     <img src="logooscuro.webp" class="logo-oscuro" alt="Asociados 2506" loading="lazy" decoding="async" style="height:120px; width:auto;">
                 </div>
-                <p><i class="fas fa-map-pin"></i> <a href="https://www.google.com/maps/place//@10.4796747,-66.8216573,17z/data=!4m6!1m5!3m4!2zMTDCsDI4JzQ2LjgiTiA2NsKwNDknMDguNyJX!8m2!3d10.4796747!4d-66.8190824?hl=es&entry=ttu&g_ep=EgoyMDI2MDYxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank"><span data-translate="footer_address">Av. Francisco Miranda, Centro Seguros La Paz - Piso 8 Torre Sur Ofc S82, Caracas.</span></a></p>
+                <p><i class="fas fa-map-pin"></i> <a href="https://www.google.com/maps/place//@10.4796747,-66.8216573,17z/data=!4m6!1m5!3m4!2zMTDCsDI4JzQ2LjgiTiA2NsKwNDknMDguNyJX!8m2!3d10.4796747!4d-66.8190824?hl=es&entry=ttu&g_ep=EgoyMDI2MDYxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank"><span data-translate="footer_address">Av. Francisco Miranda, Centro Seguros La Paz - Piso 8 Torre Oeste, Oficina N81E, Caracas.</span></a></p>
                 <p><i class="fas fa-envelope"></i> <a href="mailto:contacto@asociados2506.com.ve" style="color:var(--color-primary);">contacto@asociados2506.com.ve</a> · RIF J-50343186-5</p>
                 <p class="footer-copy" data-translate="footer_copy">© 2026 Asociados 2506 · Protegiendo tu patrimonio</p>
                 <p class="footer-credit">Tecnología: Lisbeth Parra Martínez (LegalTech Advisor) © 2026 info@legaltech.com.ve</p>
@@ -2865,7 +2439,7 @@
                 'nav_rif': 'R.I.F. J-50343186-5',
                 'nav_sistema': 'Sistema',
                 'nav_sistema_sub': 'Reportar pagos',
-                'nav_phone': '0412-7207183',
+                'nav_phone': '04128659033',
                 'banner_btn1': 'Agendar cita',
                 'banner_btn2': 'Protección legal',
                 'banner_btn3': 'Solicitar información',
@@ -2928,7 +2502,7 @@
                 'dinia_name': 'Dinia Rojas',
                 'dinia_cargo': 'Socia Fundadora',
                 'dinia_badge': 'Fundadora',
-                'dinia_desc': 'Dinia Rojas es cofundadora de Asociados 2506 con una trayectoria de más de 15 años en el sector de administración de condominios. Su enfoque está centrado en la transparencia, la comunicación efectiva y la construcción de relaciones de confianza con cada comunidad que gestiona. Su liderazgo y visión han sido fundamentales para posicionar a la empresa como un referente en el sector.',
+                'dinia_desc': 'Dinia Rojas es cofundadora de Asociados 2506 con una trayectoria de más de 7 años en el sector de administración de condominios. Su enfoque está centrado en la transparencia, la comunicación efectiva y la construcción de relaciones de confianza con cada comunidad que gestiona. Su liderazgo y visión han sido fundamentales para posicionar a la empresa como un referente en el sector.',
                 'iris_name': 'Iris Gallardo',
                 'iris_cargo': 'Socia Fundadora',
                 'iris_badge': 'Fundadora',
@@ -2953,7 +2527,7 @@
                 'video_tag2': 'Experiencia y trayectoria',
                 'video_tag3': 'Compromiso con tu comunidad',
                 'map_title': '📍 Nuestra Oficina',
-                'map_address': 'Av. Francisco Miranda, Centro Seguros La Paz - Piso 8 Torre Sur Ofc S82, Caracas',
+                'map_address': 'Av. Francisco Miranda, Centro Seguros La Paz - Piso 8 Torre Oeste, Oficina N81E',
                 'qr_title': '📱 Comparte esta página',
                 'qr_sub': 'Escanea para compartir',
                 'cta_title': 'Deja de perder tiempo. Hablemos.',
@@ -2965,8 +2539,8 @@
                 'cta_option_2': '20 a 50',
                 'cta_option_3': 'Más de 50',
                 'cta_btn': 'Enviar mensaje',
-                'cta_phones': 'Llámanos: 0412-7207183 · 0424-2886513',
-                'footer_address': 'Av. Francisco Miranda, Centro Seguros La Paz - Piso 8 Torre Sur Ofc S82, Caracas.',
+                'cta_phones': 'Llámanos: 04128659033',
+                'footer_address': 'Av. Francisco Miranda, Centro Seguros La Paz - Piso 8 Torre Oeste, Oficina N81E, Caracas.',
                 'footer_copy': '© 2026 Asociados 2506 · Protegiendo tu patrimonio',
                 'help_title': '¿Necesitas ayuda?',
                 'help_whatsapp': 'Hablar por WhatsApp',
@@ -2983,7 +2557,7 @@
                 'nav_rif': 'R.I.F. J-50343186-5',
                 'nav_sistema': 'System',
                 'nav_sistema_sub': 'Report payments',
-                'nav_phone': '0412-7207183',
+                'nav_phone': '04128659033',
                 'banner_btn1': 'Schedule appointment',
                 'banner_btn2': 'Legal protection',
                 'banner_btn3': 'Request information',
@@ -3046,7 +2620,7 @@
                 'dinia_name': 'Dinia Rojas',
                 'dinia_cargo': 'Founding Partner',
                 'dinia_badge': 'Founder',
-                'dinia_desc': 'Dinia Rojas is a co-founder of Associates 2506 with a career of more than 15 years in the condominium administration sector. Her focus is on transparency, effective communication, and building trust relationships with each community she manages. Her leadership and vision have been fundamental in positioning the company as a reference in the sector.',
+                'dinia_desc': 'Dinia Rojas is a co-founder of Associates 2506 with a career of more than 7 years in the condominium administration sector. Her focus is on transparency, effective communication, and building trust relationships with each community she manages. Her leadership and vision have been fundamental in positioning the company as a reference in the sector.',
                 'iris_name': 'Iris Gallardo',
                 'iris_cargo': 'Founding Partner',
                 'iris_badge': 'Founder',
@@ -3071,7 +2645,7 @@
                 'video_tag2': 'Experience and trajectory',
                 'video_tag3': 'Commitment to your community',
                 'map_title': '📍 Our Office',
-                'map_address': 'Av. Francisco Miranda, Centro Seguros La Paz - Piso 8 Torre Sur Ofc S82, Caracas',
+                'map_address': 'Av. Francisco Miranda, Centro Seguros La Paz - Piso 8 Torre Oeste, Oficina N81E',
                 'qr_title': '📱 Share this page',
                 'qr_sub': 'Scan to share',
                 'cta_title': 'Stop wasting time. <span>Let\'s talk.</span>',
@@ -3083,8 +2657,8 @@
                 'cta_option_2': '20 to 50',
                 'cta_option_3': 'More than 50',
                 'cta_btn': 'Send message',
-                'cta_phones': 'Call us: 0412-7207183 · 0424-2886513',
-                'footer_address': 'Av. Francisco Miranda, Centro Seguros La Paz - Piso 8 Torre Sur Ofc S82, Caracas.',
+                'cta_phones': 'Call us: 04128659033',
+                'footer_address': 'Av. Francisco Miranda, Centro Seguros La Paz - Piso 8 Torre Oeste, Oficina N81E, Caracas.',
                 'footer_copy': '© 2026 Asociados 2506 · Protecting your heritage',
                 'help_title': 'Need help?',
                 'help_whatsapp': 'Chat on WhatsApp',
@@ -3138,7 +2712,7 @@
                 var msg = 'Hola Asociados 2506, soy ' + nombre + ' del edificio ' + edificio +
                     '. Tenemos ' + aptos +
                     ' apartamentos. Me gustaría una asesoría para mi comunidad.';
-                window.open('https://wa.me/584127207183?text=' + encodeURIComponent(msg), '_blank');
+                window.open('https://wa.me/584128659033?text=' + encodeURIComponent(msg), '_blank');
                 showToast(currentLang === 'es' ? '¡Mensaje enviado! Te redirigimos a WhatsApp.' :
                     'Message sent! Redirecting to WhatsApp.');
                 this.reset();
@@ -3269,10 +2843,10 @@
                     var action = this.dataset.action;
                     if (action === 'whatsapp') {
                         window.open(
-                            'https://wa.me/584127207183?text=Hola%20Asociados%202506%2C%20vengo%20de%20la%20web%20y%20quiero%20una%20asesor%C3%ADa%20para%20mi%20condominio.',
+                            'https://wa.me/584128659033?text=Hola%20Asociados%202506%2C%20vengo%20de%20la%20web%20y%20quiero%20una%20asesor%C3%ADa%20para%20mi%20condominio.',
                             '_blank');
                     } else if (action === 'phone') {
-                        window.location.href = 'tel:+584127207183';
+                        window.location.href = 'tel:+584128659033';
                     } else if (action === 'email') {
                         window.location.href = 'mailto:contacto@asociados2506.com.ve';
                     }
@@ -3338,7 +2912,7 @@
                 entries.forEach(function(entry) {
                     if (entry.isIntersecting) {
                         var id = entry.target.id;
-                        var targets = { contador1: 12, contador2: 16, contador3: 700, contador4: 20 };
+                        var targets = { contador1: 12, contador2: 7, contador3: 700, contador4: 20 };
                         animateCounter(entry.target, targets[id] || 0);
                         counterObs.unobserve(entry.target);
                     }
@@ -3408,4 +2982,4 @@
     </script>
 
 </body>
-</html>  
+</html>
