@@ -188,7 +188,7 @@
             border-top: 1px solid rgba(255, 255, 255, 0.04);
         }
         body.dark-theme .footer p {
-            color: rgba(255, 255, 255, 0.75) !important;  /* mejor contraste en oscuro */
+            color: rgba(255, 255, 255, 0.75) !important;
         }
         body.dark-theme .footer a {
             color: #C3D96E !important;
@@ -1146,7 +1146,6 @@
             margin-bottom: 18px;
         }
 
-        /* ===== ESTILOS PARA BOTONES DEL BANNER (actualizados) ===== */
         .btn-wrapper {
             position: relative;
             display: inline-block;
@@ -1502,6 +1501,7 @@
             box-shadow: var(--shadow);
         }
 
+        /* ===== SOBRE NOSOTROS: FOTO DEL EQUIPO MÁS GRANDE ===== */
         .sobre-nosotros {
             border-bottom: 1px solid rgba(164, 196, 63, 0.04);
         }
@@ -1583,7 +1583,7 @@
 
         .sobre-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1.5fr;  /* más espacio para la foto */
             gap: 40px;
             align-items: start;
         }
@@ -1601,6 +1601,9 @@
             border: 2px solid rgba(164, 196, 63, 0.06);
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
             transition: all var(--transition);
+            padding: 10px; /* para darle respiro */
+            background: rgba(164, 196, 63, 0.02);
+            align-self: start;  /* evita que se estire verticalmente */
         }
         .sobre-grid .foto-equipo:hover {
             border-color: rgba(164, 196, 63, 0.12);
@@ -1611,8 +1614,13 @@
             width: 100%;
             height: auto;
             display: block;
+            max-width: 100%;  /* para que no se desborde */
+            border-radius: calc(var(--radius-lg) - 4px);
         }
 
+        /* ============================================================
+           ACORDEÓN SIN FOTOS GRANDES (solo miniatura + texto)
+           ============================================================ */
         .accordion-modern {
             display: flex;
             flex-direction: column;
@@ -1659,9 +1667,10 @@
         .accordion-modern .accordion-item.active .accordion-header::after {
             opacity: 1;
         }
+        /* MINIATURA (se mantiene) */
         .accordion-modern .accordion-header .foto-mini {
-            width: 60px;
-            height: 60px;
+            width: 270px;
+            height: 270px;
             border-radius: 50%;
             overflow: hidden;
             border: 2px solid rgba(164, 196, 63, 0.06);
@@ -1724,6 +1733,7 @@
             transform: rotate(180deg);
             border-color: rgba(164, 196, 63, 0.08);
         }
+        /* Cuerpo del acordeón: sin foto grande, solo texto */
         .accordion-modern .accordion-body {
             max-height: 0;
             overflow: hidden;
@@ -1731,29 +1741,14 @@
             padding: 0 28px;
         }
         .accordion-modern .accordion-item.active .accordion-body {
-            max-height: 500px;
+            max-height: 800px; /* suficiente para texto */
             padding: 0 28px 24px 28px;
         }
         .accordion-modern .accordion-body .contenido {
-            display: flex;
-            gap: 30px;
-            align-items: center;
+            /* eliminamos flex y alineación de foto */
             padding-top: 16px;
             border-top: 1px solid rgba(164, 196, 63, 0.06);
-        }
-        .accordion-modern .accordion-body .contenido .foto-grande {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 2px solid rgba(164, 196, 63, 0.06);
-            flex-shrink: 0;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
-        }
-        .accordion-modern .accordion-body .contenido .foto-grande img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            display: block;  /* el texto ocupa todo el ancho */
         }
         .accordion-modern .accordion-body .contenido .descripcion p {
             color: var(--text-secondary);
@@ -1786,6 +1781,69 @@
             transform: translateY(-2px);
         }
 
+        /* ===== RESPONSIVE PARA ACORDEÓN SIN FOTOS GRANDES ===== */
+        @media (max-width: 1024px) {
+            .sobre-grid {
+                grid-template-columns: 1fr; /* en tablet la foto abajo */
+            }
+            .sobre-grid .foto-equipo img {
+                width: 100%;
+                max-width: 100%;
+            }
+            .accordion-modern .accordion-header .foto-mini {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sobre-grid {
+                grid-template-columns: 1fr;
+            }
+            .sobre-grid .foto-equipo img {
+                width: 100%;
+                max-width: 100%;
+            }
+            .accordion-modern .accordion-header {
+                padding: 16px 20px;
+                gap: 14px;
+                flex-wrap: wrap;
+            }
+            .accordion-modern .accordion-header .foto-mini {
+                width: 160px;
+                height: 160px;
+            }
+            .accordion-modern .accordion-header .info h3 {
+                font-size: 1rem;
+            }
+            .accordion-modern .accordion-header .badge {
+                display: none;
+            }
+            .accordion-modern .accordion-body {
+                padding: 0 20px;
+            }
+            .accordion-modern .accordion-item.active .accordion-body {
+                padding: 0 20px 20px 20px;
+                max-height: 600px;
+            }
+            .accordion-modern .accordion-body .contenido {
+                padding-top: 12px;
+            }
+            .accordion-modern .accordion-body .contenido .descripcion .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .accordion-modern .accordion-header .foto-mini {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        /* ============================================================
+                   RESTO DE ESTILOS (reseñas, video, mapa, cta, footer, etc.)
+                   ============================================================ */
         .reseñas {
             border-bottom: 1px solid rgba(164, 196, 63, 0.04);
         }
@@ -2035,7 +2093,7 @@
             color: var(--color-primary);
         }
 
-        /* ===== FOOTER MEJORADO ===== */
+        /* ===== FOOTER ===== */
         .footer {
             background: var(--color-white);
             border-top: 1px solid rgba(164, 196, 63, 0.06);
@@ -2068,7 +2126,7 @@
         .footer p {
             font-size: 0.85rem;
             margin-top: 6px;
-            color: var(--text-secondary);  /* ← contraste mejorado en modo día */
+            color: var(--text-secondary);
         }
         .footer i {
             color: var(--color-primary);
@@ -2089,11 +2147,11 @@
         .footer-credit {
             font-size: 0.7rem;
             color: var(--text-secondary);
-            opacity: 0.8;   /* ligera transparencia pero con buen contraste */
+            opacity: 0.8;
             margin-top: 4px;
         }
 
-        /* ===== RESPONSIVE ===== */
+        /* ===== RESPONSIVE GENERAL ===== */
         @media (max-width: 1024px) {
             .banner-slider {
                 height: 480px;
@@ -2244,42 +2302,6 @@
                 width: 46px;
                 height: 46px;
                 font-size: 1.3rem;
-            }
-            .accordion-modern .accordion-header {
-                padding: 16px 20px;
-                gap: 14px;
-                flex-wrap: wrap;
-            }
-            .accordion-modern .accordion-header .foto-mini {
-                width: 48px;
-                height: 48px;
-            }
-            .accordion-modern .accordion-header .info h3 {
-                font-size: 1rem;
-            }
-            .accordion-modern .accordion-header .badge {
-                display: none;
-            }
-            .accordion-modern .accordion-body {
-                padding: 0 20px;
-            }
-            .accordion-modern .accordion-item.active .accordion-body {
-                padding: 0 20px 20px 20px;
-            }
-            .accordion-modern .accordion-body .contenido {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
-            }
-            .accordion-modern .accordion-body .contenido .descripcion {
-                text-align: center;
-            }
-            .accordion-modern .accordion-body .contenido .descripcion .social-links {
-                justify-content: center;
-            }
-            .accordion-modern .accordion-body .contenido .foto-grande {
-                width: 110px;
-                height: 110px;
             }
             .testimonial {
                 padding: 20px 24px;
@@ -2508,9 +2530,8 @@
             </div>
         </nav>
 
-        <!-- ===== BANNER CON BOTONES MEJORADOS ===== -->
+        <!-- ===== BANNER ===== -->
         <section class="banner-slider" id="banner" aria-label="Banner principal">
-            <!-- Slide 1 -->
             <div class="slide active">
                 <div class="container slide-content">
                     <div class="slide-badge"><i class="fas fa-building"></i> Oficina en Centro Seguros La Paz · Caracas</div>
@@ -2521,8 +2542,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Slide 2 -->
             <div class="slide">
                 <div class="container slide-content">
                     <div class="slide-badge"><i class="fas fa-gavel"></i> Respaldo Legal Total</div>
@@ -2533,8 +2552,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Slide 3 -->
             <div class="slide">
                 <div class="container slide-content">
                     <div class="slide-badge"><i class="fas fa-chart-line"></i> Transparencia Financiera</div>
@@ -2545,7 +2562,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="banner-dots">
                 <span class="dot active" data-slide="0"></span>
                 <span class="dot" data-slide="1"></span>
@@ -2695,14 +2711,14 @@
                             <!-- DINIA ROJAS -->
                             <div class="accordion-item" data-socia="dinia">
                                 <div class="accordion-header" onclick="toggleAccordion(this)">
-                                    <div class="foto-mini"><img src="dinia-rojas.png" alt="Dinia Rojas - Socia Fundadora" loading="lazy"></div>
+                                    <div class="foto-mini"><img src="dinia-rojas.webp" alt="Dinia Rojas - Socia Fundadora" loading="lazy"></div>
                                     <div class="info"><h3 data-translate="dinia_name">Dinia Rojas</h3><div class="cargo" data-translate="dinia_cargo">Socia Fundadora</div></div>
                                     <span class="badge" data-translate="dinia_badge">Fundadora</span>
                                     <div class="icon-toggle"><i class="fas fa-chevron-down"></i></div>
                                 </div>
                                 <div class="accordion-body">
                                     <div class="contenido">
-                                        <div class="foto-grande"><img src="dinia-rojas.png" alt="Dinia Rojas" loading="lazy"></div>
+                                        <!-- Foto grande eliminada -->
                                         <div class="descripcion">
                                             <p data-translate="dinia_desc">Dinia Rojas es cofundadora de Asociados 2506 con una trayectoria de más de 15 años en el sector de administración de condominios. Su enfoque está centrado en la transparencia, la comunicación efectiva y la construcción de relaciones de confianza con cada comunidad que gestiona. Su liderazgo y visión han sido fundamentales para posicionar a la empresa como un referente en el sector.</p>
                                             <div class="social-links">
@@ -2716,14 +2732,14 @@
                             <!-- IRIS GALLARDO -->
                             <div class="accordion-item" data-socia="iris">
                                 <div class="accordion-header" onclick="toggleAccordion(this)">
-                                    <div class="foto-mini"><img src="iris-gallardo.png" alt="Iris Gallardo - Socia Fundadora" loading="lazy"></div>
+                                    <div class="foto-mini"><img src="iris-gallardo.webp" alt="Iris Gallardo - Socia Fundadora" loading="lazy"></div>
                                     <div class="info"><h3 data-translate="iris_name">Iris Gallardo</h3><div class="cargo" data-translate="iris_cargo">Socia Fundadora</div></div>
                                     <span class="badge" data-translate="iris_badge">Fundadora</span>
                                     <div class="icon-toggle"><i class="fas fa-chevron-down"></i></div>
                                 </div>
                                 <div class="accordion-body">
                                     <div class="contenido">
-                                        <div class="foto-grande"><img src="iris-gallardo.png" alt="Iris Gallardo" loading="lazy"></div>
+                                        <!-- Foto grande eliminada -->
                                         <div class="descripcion">
                                             <p data-translate="iris_desc">Iris Gallardo es cofundadora de Asociados 2506 con amplia experiencia en atención al cliente y gestión de comunidades. Su pasión es crear entornos armónicos donde cada propietario se sienta escuchado y valorado. Su enfoque humano y cercano ha sido clave para el éxito de la empresa, construyendo relaciones duraderas con cada comunidad que administra.</p>
                                             <div class="social-links">
@@ -2735,7 +2751,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="foto-equipo"><img src="dinia-iris-equipo.png" alt="Dinia Rojas e Iris Gallardo - Socias Fundadoras" loading="lazy"></div>
+                    <div class="foto-equipo"><img src="dinia-iris-equipo.webp" alt="Dinia Rojas e Iris Gallardo - Socias Fundadoras" loading="lazy"></div>
                 </div>
             </div>
         </section>
@@ -2839,7 +2855,7 @@
             </div>
         </section>
 
-        <!-- ===== FOOTER MEJORADO ===== -->
+        <!-- ===== FOOTER ===== -->
         <footer class="footer">
             <div class="container">
                 <div class="footer-logo">
@@ -2848,9 +2864,7 @@
                 </div>
                 <p><i class="fas fa-map-pin"></i> <a href="https://www.google.com/maps/place//@10.4796747,-66.8216573,17z/data=!4m6!1m5!3m4!2zMTDCsDI4JzQ2LjgiTiA2NsKwNDknMDguNyJX!8m2!3d10.4796747!4d-66.8190824?hl=es&entry=ttu&g_ep=EgoyMDI2MDYxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank"><span data-translate="footer_address">Av. Francisco Miranda, Centro Seguros La Paz - Piso 8 Torre Sur Ofc S82, Caracas.</span></a></p>
                 <p><i class="fas fa-envelope"></i> <a href="mailto:contacto@asociados2506.com.ve" style="color:var(--color-primary);">contacto@asociados2506.com.ve</a> · RIF J-50343186-5</p>
-                <!-- Línea con el texto de copyright (mejor contraste) -->
                 <p class="footer-copy" data-translate="footer_copy">© 2026 Asociados 2506 · Protegiendo tu patrimonio</p>
-                <!-- Línea de crédito técnico solicitada -->
                 <p class="footer-credit">Tecnología: Lisbeth Parra Martínez (LegalTech Advisor) © 2026 info@legaltech.com.ve</p>
             </div>
         </footer>
@@ -2861,7 +2875,6 @@
     SCRIPTS
     ============================================================ -->
     <script>
-        // ===== TRADUCCIONES (ES + EN) =====
         const translations = {
             es: {
                 'nav_rif': 'R.I.F. J-50343186-5',
@@ -3101,7 +3114,6 @@
 
         let currentLang = 'es';
 
-        // ===== FUNCIÓN PARA SCROLL AL FORMULARIO =====
         function scrollToContacto() {
             var target = document.getElementById('btnEnviarMensaje');
             if (!target) target = document.getElementById('contacto');
@@ -3113,10 +3125,8 @@
             if (history.pushState) history.pushState(null, null, '#contacto');
         }
 
-        // ===== INICIO =====
         document.addEventListener('DOMContentLoaded', function() {
 
-            // ===== TOAST =====
             function showToast(msg) {
                 var toast = document.getElementById('toast');
                 var toastMsg = document.getElementById('toastMessage');
@@ -3128,7 +3138,6 @@
                 }
             }
 
-            // ===== FORMULARIO =====
             document.getElementById('contactForm').addEventListener('submit', function(e) {
                 e.preventDefault();
                 var nombre = document.getElementById('nombreInput').value.trim();
@@ -3151,7 +3160,6 @@
                 });
             });
 
-            // ===== TRADUCCIONES =====
             function translatePage(lang) {
                 currentLang = lang;
                 var texts = translations[lang];
@@ -3184,7 +3192,6 @@
                 });
             });
 
-            // ===== SCROLL TOP =====
             var scrollBtn = document.getElementById('scrollTopBtn');
             window.addEventListener('scroll', function() {
                 scrollBtn.classList.toggle('visible', window.scrollY > 400);
@@ -3193,7 +3200,6 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
-            // ===== AUTO-GUARDADO FORMULARIO =====
             document.querySelectorAll('#contactForm input, #contactForm select').forEach(function(input) {
                 input.addEventListener('input', function() {
                     localStorage.setItem('form_' + this.id, this.value);
@@ -3202,7 +3208,6 @@
                 if (saved) this.value = saved;
             });
 
-            // ===== BANNER SLIDER =====
             (function() {
                 var slides = document.querySelectorAll('.banner-slider .slide');
                 var dots = document.querySelectorAll('.banner-dots .dot');
@@ -3232,7 +3237,6 @@
                 start();
             })();
 
-            // ===== ACORDEÓN =====
             window.toggleAccordion = function(header) {
                 var item = header.closest('.accordion-item');
                 var isActive = item.classList.contains('active');
@@ -3260,7 +3264,6 @@
                     body.style.padding = '0 28px'; }
             });
 
-            // ===== HELP MODAL =====
             var helpBtn = document.getElementById('helpBtn');
             var helpModal = document.getElementById('helpModal');
             var closeHelp = document.getElementById('closeHelp');
@@ -3291,7 +3294,6 @@
                 });
             });
 
-            // ===== CALCULADORA =====
             var gastoInput = document.getElementById('gastoInput');
             if (gastoInput) {
                 var actual = document.getElementById('gastoActual');
@@ -3306,7 +3308,6 @@
                 });
             }
 
-            // ===== CHECKLIST =====
             document.getElementById('checkBtn').addEventListener('click', function() {
                 var checks = document.querySelectorAll('.check-input:checked');
                 var total = document.querySelectorAll('.check-input').length;
@@ -3323,7 +3324,6 @@
                 }
             });
 
-            // ===== INTERSECTION OBSERVER =====
             var observer = new IntersectionObserver(function(entries) {
                 entries.forEach(function(entry) {
                     if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -3333,7 +3333,6 @@
                 observer.observe(el);
             });
 
-            // ===== CONTADORES =====
             function animateCounter(el, target, duration) {
                 duration = duration || 2000;
                 var start = 0;
@@ -3360,7 +3359,6 @@
             });
             document.querySelectorAll('[id^="contador"]').forEach(function(el) { counterObs.observe(el); });
 
-            // ===== THEME TOGGLE =====
             var savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark') {
                 document.body.classList.add('dark-theme');
@@ -3379,7 +3377,6 @@
                 }
             });
 
-            // ===== QR CODE =====
             function generateQRCode() {
                 var container = document.getElementById('qrCode');
                 if (!container) return;
@@ -3407,7 +3404,6 @@
             setTimeout(generateQRCode, 500);
             window.addEventListener('popstate', function() { setTimeout(generateQRCode, 300); });
 
-            // ===== BOTONES DEL BANNER (evento directo) =====
             document.querySelectorAll('.btn-wrapper .banner-btn').forEach(function(btn) {
                 btn.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -3416,7 +3412,6 @@
                 });
             });
 
-            // ===== Si el usuario llega con #contacto en la URL =====
             if (window.location.hash === '#contacto') {
                 setTimeout(scrollToContacto, 500);
             }
